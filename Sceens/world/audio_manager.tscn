@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://iv111st4syor"]
+
+[ext_resource type="Script" path="res://Scripts/core/audio_manager.gd" id="1_3sj1t"]
+[ext_resource type="AudioStream" uid="uid://blujfqxo30km1" path="res://Assets/sfx/mainSound.wav" id="1_sa0jy"]
+[ext_resource type="AudioStream" uid="uid://c4x5qiirvjngp" path="res://Assets/sfx/darkAmbient.mp3" id="3_ipcu0"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_3sj1t")
+
+[node name="mainSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_sa0jy")
+volume_db = 15.0
+
+[node name="caveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ipcu0")
+volume_db = 16.0

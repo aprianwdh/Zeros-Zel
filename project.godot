@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Zeros Zel"
-run/main_scene="res://Sceens/world/test_level.tscn"
+run/main_scene="res://Sceens/world/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GLobal_script="*res://Scripts/core/GLobal.gd"
+AudioManager="*res://Sceens/world/audio_manager.tscn"
+
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=426
+window/size/viewport_height=240
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

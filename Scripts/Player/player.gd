@@ -8,8 +8,12 @@ var last_direction = Vector2.ZERO
 
 var health_player = 100
 var death_player = false
+var coldown_attack = false
 
 func _ready():
+	if GLobal_script.restart_game == true:
+		GLobal_script.have_sword = false
+		GLobal_script.restart_game = false
 	animasi_player.play("iddle_down")
 	last_direction.y = 1
 func _physics_process(delta):
@@ -55,7 +59,7 @@ func animasi_attack():
 	if direction != Vector2.ZERO:
 		last_direction = direction
 	
-	if Input.is_action_just_pressed('attack') :
+	if Input.is_action_just_pressed('attack') and GLobal_script.have_sword:
 		can_attck = true
 		if can_attck:
 			if direction.x != 0 :
@@ -82,15 +86,19 @@ func animasi_attack():
 
 
 func _on_attack_area_body_entered(body):
-	if body.has_method('attacked'):
+	if body.has_method('attacked') and GLobal_script.have_sword:
 		body.attacked()
 		
 func attacked_player():
-	if death_player == false:
+	if death_player == false and coldown_attack == false:
+		coldown_attack = true
 		health_player -= 20
+		print(health_player)
 		$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)  # Flash merah
 		await get_tree().create_timer(0.1).timeout  # Tunggu 0.1 detik
 		$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Kembali normal
+		await get_tree().create_timer(0.2).timeout
+		coldown_attack = false
 
 		if health_player <= 0:
 			death_player = true
@@ -100,4 +108,4 @@ func die_player():
 	if death_player == true :
 		animasi_player.play("die")
 		await animasi_player.animation_finished
-		#queue_free()
+		GLobal_script.Game_Over()
