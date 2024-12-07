@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c4x5qiirvjngp" path="res://Assets/sfx/darkAmbient.mp3" id="3_ipcu0"]
 
 [node name="AudioManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_3sj1t")
 
 [node name="mainSound" type="AudioStreamPlayer2D" parent="."]
@@ -12,5 +13,6 @@ stream = ExtResource("1_sa0jy")
 volume_db = 15.0
 
 [node name="caveSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("3_ipcu0")
 volume_db = 16.0

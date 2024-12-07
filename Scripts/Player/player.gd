@@ -6,13 +6,16 @@ const SPEED = 2000
 var last_direction = Vector2.ZERO
 @export var can_attck = false
 
-var health_player = 100
+
 var death_player = false
 var coldown_attack = false
 
 func _ready():
+	$"health bar/ProgressBar".value = GLobal_script.health_player
 	if GLobal_script.restart_game == true:
-		GLobal_script.have_sword = false
+		GLobal_script.health_player = 100
+		$"health bar/ProgressBar".value = GLobal_script.health_player
+		#GLobal_script.have_sword = false
 		GLobal_script.restart_game = false
 	animasi_player.play("iddle_down")
 	last_direction.y = 1
@@ -92,15 +95,15 @@ func _on_attack_area_body_entered(body):
 func attacked_player():
 	if death_player == false and coldown_attack == false:
 		coldown_attack = true
-		health_player -= 20
-		print(health_player)
+		GLobal_script.health_player -= 20
+		$"health bar/ProgressBar".value = GLobal_script.health_player
 		$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)  # Flash merah
 		await get_tree().create_timer(0.1).timeout  # Tunggu 0.1 detik
 		$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Kembali normal
 		await get_tree().create_timer(0.2).timeout
 		coldown_attack = false
 
-		if health_player <= 0:
+		if GLobal_script.health_player <= 0:
 			death_player = true
 			die_player()
 		

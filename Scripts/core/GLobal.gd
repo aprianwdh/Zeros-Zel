@@ -9,6 +9,13 @@ var have_sword = false
 var is_Game_Over = false
 var restart_game = false
 var current_music = ''
+var health_player = 100
+var inventory = []
+var max_inventory_size = 4
+var inven_nomor = 1
+var ITEM
+var cutseen_cave_1 = false
+
 
 func Game_Over():
 	get_tree().change_scene_to_file("res://Sceens/world/game_over.tscn")
@@ -22,3 +29,19 @@ func _process(delta):
 		AudioManager.stop_main()
 		AudioManager.play_cave()
 		current_music = 'cave'
+
+func add_item_to_inventory(item):
+	for i in range(min(inventory.size(), max_inventory_size)):
+		if inventory[i] == null:
+			inventory[i] = item
+			
+	if inventory.size() < max_inventory_size:
+		inventory.append(item)
+	else :
+		print("Inventory full")
+		
+func get_inventory():
+	return inventory
+
+func update_inven():
+	pass

@@ -1,7 +1,8 @@
-[gd_scene load_steps=72 format=3 uid="uid://6jawmkxjamna"]
+[gd_scene load_steps=73 format=3 uid="uid://6jawmkxjamna"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_4llxy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="2_kjqlf"]
+[ext_resource type="PackedScene" uid="uid://diw1kxfjhc0gv" path="res://Sceens/world/health_bar.tscn" id="3_frtvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3lf"]
 atlas = ExtResource("2_kjqlf")
@@ -1049,8 +1050,6 @@ sprite_frames = SubResource("SpriteFrames_fr2hw")
 animation = &"iddle_down"
 flip_h = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_eohwe")
@@ -1067,5 +1066,7 @@ position = Vector2(0.25, 12)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_lrhti")
 disabled = true
+
+[node name="health bar" parent="." instance=ExtResource("3_frtvr")]
 
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

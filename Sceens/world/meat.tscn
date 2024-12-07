@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://btomb6tpcfitp"]
+
+[ext_resource type="Script" path="res://Scripts/world/meat.gd" id="1_l1jm3"]
+[ext_resource type="Texture2D" uid="uid://bxrtt5ckeptpn" path="res://Assets/world/M_Idle.png" id="1_raxcd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ufpj"]
+
+[node name="meat" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_l1jm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_raxcd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 6)
+shape = SubResource("CircleShape2D_4ufpj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

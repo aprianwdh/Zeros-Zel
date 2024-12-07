@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://diw1kxfjhc0gv"]
+
+[ext_resource type="Script" path="res://Scripts/world/health_bar.gd" id="1_ufoih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj4a"]
+bg_color = Color(0.0338533, 0.0338533, 0.0338532, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edmdj"]
+bg_color = Color(0.838714, 0.127053, 0.119064, 1)
+
+[node name="health bar" type="CanvasLayer"]
+script = ExtResource("1_ufoih")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = 0.096
+anchor_right = 0.343
+anchor_bottom = 0.146
+offset_left = 0.0719995
+offset_top = -0.0400009
+offset_right = -0.118011
+offset_bottom = -0.0400047
+theme_override_styles/background = SubResource("StyleBoxFlat_emj4a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_edmdj")
+show_percentage = false

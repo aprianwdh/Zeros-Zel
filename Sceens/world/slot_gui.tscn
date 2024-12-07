@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5wpn22bbk1bp"]
+
+[ext_resource type="Texture2D" uid="uid://bvqdfa3jrg4qf" path="res://Assets/world/inventorySlot.png" id="1_rw8x3"]
+
+[node name="slot_gui" type="Panel"]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = -1
+anchor_right = 0.047
+anchor_bottom = 0.083
+offset_right = -0.0220013
+offset_bottom = 0.079998
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rw8x3")
+centered = false
+vframes = 2
