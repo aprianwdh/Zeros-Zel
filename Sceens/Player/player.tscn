@@ -1,8 +1,9 @@
-[gd_scene load_steps=73 format=3 uid="uid://6jawmkxjamna"]
+[gd_scene load_steps=74 format=3 uid="uid://6jawmkxjamna"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_4llxy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="2_kjqlf"]
 [ext_resource type="PackedScene" uid="uid://diw1kxfjhc0gv" path="res://Sceens/world/health_bar.tscn" id="3_frtvr"]
+[ext_resource type="PackedScene" uid="uid://iv111st4syor" path="res://Sceens/world/audio_manager.tscn" id="4_sx6c2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3lf"]
 atlas = ExtResource("2_kjqlf")
@@ -575,6 +576,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sword_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_rdyfb"]
 resource_name = "atack_side"
@@ -638,6 +653,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioManager")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sword_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_rx2xu"]
@@ -714,6 +743,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sword_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ox1t2"]
@@ -1068,5 +1111,7 @@ shape = SubResource("RectangleShape2D_lrhti")
 disabled = true
 
 [node name="health bar" parent="." instance=ExtResource("3_frtvr")]
+
+[node name="AudioManager" parent="." instance=ExtResource("4_sx6c2")]
 
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

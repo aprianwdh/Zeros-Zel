@@ -10,6 +10,7 @@ var target
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var last_position
 var waktu_respawn : int = 2
+var drop_coin = preload("res://Sceens/Colectible/coin_anim.tscn")
 
 func _ready():
 	last_position = global_position
@@ -56,6 +57,7 @@ func die():
 		$AnimatedSprite2D.play("mati")
 		await  animated_sprite_2d.animation_finished
 		$CollisionShape2D2.disabled = true
+		drop_item()
 		hide()
 		await get_tree().create_timer(waktu_respawn).timeout
 		respawn()
@@ -85,3 +87,8 @@ func _on_attack_area_body_exited(body):
 	if body.is_in_group("Player"):
 		target = null
 		$attack_timer.stop()
+		
+func drop_item():
+	var anim_drop = drop_coin.instantiate()
+	anim_drop.global_position = global_position
+	get_tree().get_root().add_child(anim_drop)

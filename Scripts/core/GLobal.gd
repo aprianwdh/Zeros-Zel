@@ -15,6 +15,7 @@ var max_inventory_size = 4
 var inven_nomor = 1
 var ITEM
 var cutseen_cave_1 = false
+var coin_player = 0
 
 
 func Game_Over():

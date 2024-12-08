@@ -84,6 +84,7 @@ func animasi_attack():
 				$attack_area/CollisionShape2D.position = Vector2(-11,4)
 			else:
 				$attack_area/CollisionShape2D.position = Vector2(11,4)
+			#AudioManager.sword_play()
 	
 	#move_and_slide()
 

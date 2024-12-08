@@ -12,4 +12,7 @@ func play_cave():
 func stop_cave():
 	$caveSound.stop()
 	
+func sword_play():
+	$sword.play()
+	
 
