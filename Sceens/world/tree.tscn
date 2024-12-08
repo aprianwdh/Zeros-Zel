@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwp7kl1qmgs4a"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/tree.gd" id="1_2axye"]
+[ext_resource type="Texture2D" uid="uid://d1g17ie0ues6f" path="res://Assets/world/Tree.png" id="1_tpyhv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj71e"]
+atlas = ExtResource("1_tpyhv")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4ocm"]
+atlas = ExtResource("1_tpyhv")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utyfn"]
+atlas = ExtResource("1_tpyhv")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drwq8"]
+atlas = ExtResource("1_tpyhv")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d48o3"]
+atlas = ExtResource("1_tpyhv")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7vpg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj71e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4ocm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utyfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drwq8")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d48o3")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sueii"]
+size = Vector2(34, 56.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4if3y"]
+size = Vector2(33.3333, 56.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gshpw"]
+
+[node name="tree" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_2axye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -90)
+sprite_frames = SubResource("SpriteFrames_s7vpg")
+animation = &"attacked"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1, -41.6667)
+shape = SubResource("RectangleShape2D_sueii")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9.53674e-07, -41.6667)
+shape = SubResource("RectangleShape2D_4if3y")
+debug_color = Color(0.920303, 0.276532, 0.127905, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -23.3333)
+shape = SubResource("RectangleShape2D_gshpw")
+disabled = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

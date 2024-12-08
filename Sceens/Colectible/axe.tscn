@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr0flhy7mf6sh"]
+
+[ext_resource type="Script" path="res://Scripts/Collectible/axe.gd" id="1_i7j5p"]
+[ext_resource type="Texture2D" uid="uid://ddjetmlond764" path="res://Assets/Player/Armi Black png.png" id="2_xue21"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ox6i3"]
+radius = 2.12132
+height = 14.1421
+
+[node name="sword" type="Area2D"]
+script = ExtResource("1_i7j5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xue21")
+region_enabled = true
+region_rect = Rect2(57.3419, 12.5039, 32.3065, 33.4999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_ox6i3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

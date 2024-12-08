@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv5qu7j4c0fo0"]
+
+[ext_resource type="Script" path="res://Scripts/Collectible/kayu.gd" id="1_k8e18"]
+[ext_resource type="Texture2D" uid="uid://buoypixvqwioi" path="res://Assets/world/W_Spawn.png" id="2_eo5rm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxqb4"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y24oo"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsakw"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74rl1"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjwo3"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omeol"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfu3s"]
+atlas = ExtResource("2_eo5rm")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_su2ae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxqb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y24oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsakw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74rl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjwo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omeol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfu3s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uh77q"]
+radius = 26.0
+
+[node name="kayu" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_k8e18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_su2ae")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 7)
+shape = SubResource("CircleShape2D_uh77q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

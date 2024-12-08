@@ -6,6 +6,7 @@ var last_position_player_x
 var last_position_player_y
 var load_position_player = false
 var have_sword = false
+var have_axe = false
 var is_Game_Over = false
 var restart_game = false
 var current_music = ''
@@ -16,6 +17,8 @@ var inven_nomor = 1
 var ITEM
 var cutseen_cave_1 = false
 var coin_player = 0
+var kayu_player = 0
+var current_weapon = 'hand'
 
 
 func Game_Over():

@@ -62,9 +62,9 @@ func animasi_attack():
 	if direction != Vector2.ZERO:
 		last_direction = direction
 	
-	if Input.is_action_just_pressed('attack') and GLobal_script.have_sword:
+	if Input.is_action_just_pressed('attack') and GLobal_script.current_weapon != 'hand':
 		can_attck = true
-		if can_attck:
+		if can_attck and GLobal_script.current_weapon == 'sword':
 			if direction.x != 0 :
 				animasi_player.play('atack_side')
 			elif direction.y < 0 :
@@ -78,12 +78,27 @@ func animasi_attack():
 					animasi_player.play("atack_up")
 				elif last_direction.y > 0 :
 					animasi_player.play("atack_down")
-					
-			$AnimatedSprite2D.flip_h = last_direction.x < 0
-			if last_direction.x < 0 :
-				$attack_area/CollisionShape2D.position = Vector2(-11,4)
+		elif can_attck and GLobal_script.current_weapon == 'axe':
+			if direction.x != 0 :
+				animasi_player.play('axe_side')
+			elif direction.y < 0 :
+				animasi_player.play("axe_up")
+			elif direction.y > 0 :
+				animasi_player.play("axe_down")
 			else:
-				$attack_area/CollisionShape2D.position = Vector2(11,4)
+				if last_direction.x != 0 :
+					animasi_player.play("axe_side")
+				elif last_direction.y < 0 :
+					animasi_player.play("axe_up")
+				elif last_direction.y > 0 :
+					animasi_player.play("axe_down")
+					
+		$AnimatedSprite2D.flip_h = last_direction.x < 0
+		if last_direction.x < 0 :
+			$attack_area/CollisionShape2D.position = Vector2(-11,4)
+		else:
+			$attack_area/CollisionShape2D.position = Vector2(11,4)
+		await animasi_player.animation_finished
 			#AudioManager.sword_play()
 	
 	#move_and_slide()

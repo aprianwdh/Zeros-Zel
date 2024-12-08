@@ -18,7 +18,7 @@ layer_1/tile_data = PackedInt32Array(65537, 1114112, 3, 65538, 1114112, 3, 65539
 [node name="Player" parent="TileMap" index="0"]
 position = Vector2(215, 192)
 
-[node name="Camera2D" parent="TileMap/Player" index="5"]
+[node name="Camera2D" parent="TileMap/Player" index="7"]
 limit_left = -5
 limit_top = 0
 limit_right = 450
