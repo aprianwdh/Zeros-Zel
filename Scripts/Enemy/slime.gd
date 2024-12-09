@@ -47,7 +47,7 @@ func attacked():
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)  # Flash merah
 	await get_tree().create_timer(0.1).timeout  # Tunggu 0.1 detik
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Kembali normal
-	print(health)
+	
 	if health <= 0:
 		death = true
 		die()
@@ -58,6 +58,7 @@ func die():
 		await  animated_sprite_2d.animation_finished
 		$CollisionShape2D2.disabled = true
 		drop_item()
+		GLobal_script.gain_exp(10)
 		hide()
 		await get_tree().create_timer(waktu_respawn).timeout
 		respawn()

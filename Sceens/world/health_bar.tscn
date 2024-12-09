@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://diw1kxfjhc0gv"]
+[gd_scene load_steps=9 format=3 uid="uid://diw1kxfjhc0gv"]
 
 [ext_resource type="Script" path="res://Scripts/world/health_bar.gd" id="1_ufoih"]
+[ext_resource type="Texture2D" uid="uid://cmui7te4si0cc" path="res://Assets/UI/Banners/Banner_Horizontal.png" id="2_qbx42"]
+[ext_resource type="Texture2D" uid="uid://c8j7p1aos85r5" path="res://Assets/Player/tile_0044.png" id="3_odf02"]
+[ext_resource type="Texture2D" uid="uid://55bedm8wghur" path="res://Assets/world/01.png" id="4_5pon7"]
+[ext_resource type="Texture2D" uid="uid://suf5ec7mlh4i" path="res://Assets/UI/Ribbons/Ribbon_Blue_3Slides.png" id="5_l42s3"]
+[ext_resource type="Script" path="res://Scripts/world/level.gd" id="6_kansv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj4a"]
 bg_color = Color(0.0338533, 0.0338533, 0.0338532, 1)
@@ -11,16 +16,100 @@ bg_color = Color(0.838714, 0.127053, 0.119064, 1)
 [node name="health bar" type="CanvasLayer"]
 script = ExtResource("1_ufoih")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -25.0
+offset_right = 502.0
+offset_bottom = 192.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_qbx42")
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.028
-anchor_top = 0.096
-anchor_right = 0.343
-anchor_bottom = 0.146
-offset_left = 0.0719995
-offset_top = -0.0400009
-offset_right = -0.118011
-offset_bottom = -0.0400047
+anchor_left = 0.38
+anchor_top = 0.312
+anchor_right = 0.702
+anchor_bottom = 0.417
+offset_left = -0.26001
+offset_top = 0.0960007
+offset_right = 0.04599
+offset_bottom = -0.064003
 theme_override_styles/background = SubResource("StyleBoxFlat_emj4a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_edmdj")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.297
+anchor_top = 0.243
+anchor_right = 0.373
+anchor_bottom = 0.451
+offset_left = 0.147614
+offset_top = 0.0107002
+offset_right = 0.0956116
+offset_bottom = 0.0746918
+texture = ExtResource("3_odf02")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.297
+anchor_top = 0.469
+anchor_right = 0.373
+anchor_bottom = 0.677
+offset_left = 0.147614
+offset_top = -0.0478516
+offset_right = 0.0956116
+offset_bottom = 0.0161438
+texture = ExtResource("4_5pon7")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38
+anchor_top = 0.521
+anchor_right = 0.607
+anchor_bottom = 0.641
+offset_left = 3.0733
+offset_top = -6.69863
+offset_right = 3.44427
+offset_bottom = 7.26137
+theme_override_font_sizes/font_size = 27
+text = "0"
+
+[node name="level" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.061
+anchor_top = 0.246
+anchor_right = 0.305
+anchor_bottom = 0.312
+offset_left = -24.986
+offset_top = -0.0400009
+offset_right = 391.07
+offset_bottom = 64.12
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_l42s3")
+script = ExtResource("6_kansv")
+
+[node name="Label" type="Label" parent="level"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 10.0
+offset_right = 195.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 27
+text = "lv1"
+horizontal_alignment = 1
+
+[node name="exp_bar" type="ProgressBar" parent="level"]
+modulate = Color(0.423529, 0.458824, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.125
+anchor_right = 0.76
+anchor_bottom = 0.625
+offset_left = -1.52588e-05
+offset_right = -0.200012
 show_percentage = false

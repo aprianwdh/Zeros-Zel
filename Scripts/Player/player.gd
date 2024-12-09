@@ -11,10 +11,10 @@ var death_player = false
 var coldown_attack = false
 
 func _ready():
-	$"health bar/ProgressBar".value = GLobal_script.health_player
+	update_health_bar()
 	if GLobal_script.restart_game == true:
 		GLobal_script.health_player = 100
-		$"health bar/ProgressBar".value = GLobal_script.health_player
+		update_health_bar()
 		#GLobal_script.have_sword = false
 		GLobal_script.restart_game = false
 	animasi_player.play("iddle_down")
@@ -105,14 +105,14 @@ func animasi_attack():
 
 
 func _on_attack_area_body_entered(body):
-	if body.has_method('attacked') and GLobal_script.have_sword:
+	if body.has_method('attacked') and GLobal_script.current_weapon != 'hand':
 		body.attacked()
 		
 func attacked_player():
 	if death_player == false and coldown_attack == false:
 		coldown_attack = true
 		GLobal_script.health_player -= 20
-		$"health bar/ProgressBar".value = GLobal_script.health_player
+		update_health_bar()
 		$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)  # Flash merah
 		await get_tree().create_timer(0.1).timeout  # Tunggu 0.1 detik
 		$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Kembali normal
@@ -128,3 +128,6 @@ func die_player():
 		animasi_player.play("die")
 		await animasi_player.animation_finished
 		GLobal_script.Game_Over()
+		
+func update_health_bar():
+	$"health bar/TextureRect/ProgressBar".value = GLobal_script.health_player

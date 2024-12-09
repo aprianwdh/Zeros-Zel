@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dy4go8kpmc6ki"]
+[gd_scene load_steps=32 format=3 uid="uid://dy4go8kpmc6ki"]
 
 [ext_resource type="Script" path="res://Sceens/world/world.gd" id="1_faq1y"]
 [ext_resource type="Texture2D" uid="uid://cbaoflq0biqfd" path="res://Assets/fantasy_ [version 2.0]/forest_/forest_.png" id="1_hyjh0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/world/inventory_manager.gd" id="13_3w1u7"]
 [ext_resource type="PackedScene" uid="uid://bep68jiujbwhx" path="res://Sceens/world/inventory_gui.tscn" id="13_tanht"]
 [ext_resource type="PackedScene" uid="uid://iv111st4syor" path="res://Sceens/world/audio_manager.tscn" id="15_6ubxv"]
+[ext_resource type="PackedScene" uid="uid://c7p2vj4s83rm5" path="res://Sceens/world/time_cycle.tscn" id="16_bcspe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jc80"]
 texture = ExtResource("1_hyjh0")
@@ -1971,6 +1972,8 @@ offset_right = 62.5
 offset_bottom = 43.0
 
 [node name="AudioManager" parent="." instance=ExtResource("15_6ubxv")]
+
+[node name="time_cycle" parent="." instance=ExtResource("16_bcspe")]
 
 [connection signal="closed" from="inventory_manager/inventory_gui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="inventory_manager/inventory_gui" to="." method="_on_inventory_gui_opened"]

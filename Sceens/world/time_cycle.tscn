@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7p2vj4s83rm5"]
+
+[ext_resource type="Script" path="res://Scripts/world/time_cycle.gd" id="1_gak7x"]
+
+[node name="time_cycle" type="CanvasModulate"]
+color = Color(0.429764, 0.332928, 0.944093, 1)
+script = ExtResource("1_gak7x")

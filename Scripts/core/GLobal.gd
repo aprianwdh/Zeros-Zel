@@ -19,12 +19,15 @@ var cutseen_cave_1 = false
 var coin_player = 0
 var kayu_player = 0
 var current_weapon = 'hand'
+var exp_player = 0
+var level_player = 1
+var exp_threshold = [0,50,100,150,200,250]
 
 
 func Game_Over():
 	get_tree().change_scene_to_file("res://Sceens/world/game_over.tscn")
 	
-func _process(delta):
+func _process(_delta):
 	if current_sceen == 'world' and current_music != 'main':
 		AudioManager.stop_cave()
 		AudioManager.play_main()
@@ -47,5 +50,9 @@ func add_item_to_inventory(item):
 func get_inventory():
 	return inventory
 
-func update_inven():
-	pass
+func gain_exp(amount : int):
+	exp_player += amount
+	while exp_player >= exp_threshold[level_player] and level_player < 5:
+		exp_player -= exp_threshold[level_player]
+		level_player += 1
+		
