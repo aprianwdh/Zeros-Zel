@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://q7hpl8npdawc"]
+
+[ext_resource type="Texture2D" uid="uid://covhkhom2kj6a" path="res://Assets/Player/flammin stick.png" id="1_0xtu6"]
+[ext_resource type="Script" path="res://Scripts/Collectible/torch.gd" id="1_iykc1"]
+[ext_resource type="Texture2D" uid="uid://du3fcawyt4lo7" path="res://Assets/Player/shadow.png" id="3_xijiw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkk8i"]
+atlas = ExtResource("1_0xtu6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dfuj"]
+atlas = ExtResource("1_0xtu6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwesn"]
+atlas = ExtResource("1_0xtu6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eq5m"]
+atlas = ExtResource("1_0xtu6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybu5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkk8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dfuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwesn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eq5m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51juj"]
+radius = 2.0
+height = 16.0
+
+[node name="torch" type="Area2D"]
+script = ExtResource("1_iykc1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybu5n")
+frame = 3
+frame_progress = 0.406378
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_51juj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.859972, 0.686438, 0.265912, 1)
+shadow_enabled = true
+texture = ExtResource("3_xijiw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

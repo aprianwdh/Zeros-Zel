@@ -7,6 +7,8 @@ var last_position_player_y
 var load_position_player = false
 var have_sword = false
 var have_axe = false
+var have_torch = false
+var torch_player = 0
 var is_Game_Over = false
 var restart_game = false
 var current_music = ''
@@ -22,6 +24,7 @@ var current_weapon = 'hand'
 var exp_player = 0
 var level_player = 1
 var exp_threshold = [0,50,100,150,200,250]
+var light_on = false
 
 
 func Game_Over():
@@ -55,4 +58,14 @@ func gain_exp(amount : int):
 	while exp_player >= exp_threshold[level_player] and level_player < 5:
 		exp_player -= exp_threshold[level_player]
 		level_player += 1
+		
+func ligh_player_on():
+	if light_on == false and torch_player > 0:
+		light_on = true
+		torch_player -= 1
+		if torch_player <= 0:
+			have_torch = false
+		await get_tree().create_timer(12).timeout
+		light_on = false
+		#print('torch = 'str())
 		

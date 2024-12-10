@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://6jawmkxjamna"]
+[gd_scene load_steps=87 format=3 uid="uid://6jawmkxjamna"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_4llxy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="2_kjqlf"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://diw1kxfjhc0gv" path="res://Sceens/world/health_bar.tscn" id="3_frtvr"]
 [ext_resource type="PackedScene" uid="uid://iv111st4syor" path="res://Sceens/world/audio_manager.tscn" id="4_sx6c2"]
 [ext_resource type="PackedScene" uid="uid://chpx1k3dketsm" path="res://Sceens/world/inventory.tscn" id="6_mscm5"]
+[ext_resource type="Texture2D" uid="uid://du3fcawyt4lo7" path="res://Assets/Player/shadow.png" id="7_ccb0b"]
+[ext_resource type="Script" path="res://Scripts/Player/player_light.gd" id="8_lmgdy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3lf"]
 atlas = ExtResource("2_kjqlf")
@@ -1435,5 +1437,11 @@ disabled = true
 [node name="AudioManager" parent="." instance=ExtResource("4_sx6c2")]
 
 [node name="inventory" parent="." instance=ExtResource("6_mscm5")]
+
+[node name="player_light" type="PointLight2D" parent="."]
+visible = false
+color = Color(0.858824, 0.686275, 0.266667, 1)
+texture = ExtResource("7_ccb0b")
+script = ExtResource("8_lmgdy")
 
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

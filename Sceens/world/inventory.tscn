@@ -86,3 +86,4 @@ grow_vertical = 2
 
 [connection signal="pressed" from="Control/HBoxContainer/slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/slot3" to="." method="_on_slot_3_pressed"]

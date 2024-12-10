@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpc2sameljn3y"]
+[gd_scene load_steps=7 format=3 uid="uid://bpc2sameljn3y"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_o6qn2"]
 [ext_resource type="PackedScene" uid="uid://dsw21t6tqbgig" path="res://Sceens/Enemy/slime.tscn" id="2_7eqvj"]
 [ext_resource type="PackedScene" uid="uid://cr0flhy7mf6sh" path="res://Sceens/Colectible/axe.tscn" id="3_gfear"]
 [ext_resource type="PackedScene" uid="uid://cwp7kl1qmgs4a" path="res://Sceens/world/tree.tscn" id="4_1kb5p"]
+[ext_resource type="PackedScene" uid="uid://q7hpl8npdawc" path="res://Sceens/Colectible/torch.tscn" id="5_c02yk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5kkc"]
 
@@ -39,6 +40,12 @@ shape = SubResource("RectangleShape2D_m5kkc")
 
 [node name="sword" parent="." index="7" instance=ExtResource("3_gfear")]
 position = Vector2(50, 178)
+
+[node name="torch" parent="." index="9" instance=ExtResource("5_c02yk")]
+position = Vector2(95, 169)
+
+[node name="torch2" parent="." index="10" instance=ExtResource("5_c02yk")]
+position = Vector2(53, 146)
 
 [connection signal="body_entered" from="cave1" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="cave1" to="." method="_on_area_2d_body_exited"]
