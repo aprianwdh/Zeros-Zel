@@ -20,3 +20,13 @@ func _on_play_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_countinue_pressed():
+	GLobal_script.load()
+	if GLobal_script.current_sceen == 'world':
+		get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')
+	elif GLobal_script.current_music == 'cave':
+		get_tree().change_scene_to_file('res://Sceens/world/cave_test.tscn')
+	else:
+		get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')

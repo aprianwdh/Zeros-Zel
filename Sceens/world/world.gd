@@ -60,3 +60,11 @@ func _on_inventory_gui_closed():
 
 func _on_inventory_gui_opened():
 	get_tree().paused = true
+
+
+func _on_pause_menu_closed_pause_menu():
+	get_tree().paused = false
+
+
+func _on_pause_menu_opened_pause_menu():
+	get_tree().paused = true

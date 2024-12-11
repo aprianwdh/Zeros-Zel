@@ -127,9 +127,13 @@ theme_override_colors/font_outline_color = Color(0.839216, 0.615686, 0, 1)
 text = "ZEROS and ZEL
 "
 
-[node name="play" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="new_game" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "PLAY"
+
+[node name="countinue" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "COUNTINUE"
 
 [node name="quit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -156,5 +160,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/new_game" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/countinue" to="." method="_on_countinue_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
