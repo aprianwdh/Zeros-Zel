@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _process(_delta):
+	$Control/HBoxContainer/slot3/toorch_counter.text = str(GLobal_script.torch_player)
 	if GLobal_script.have_sword == true:
 		$Control/HBoxContainer/slot1.show()
 	if GLobal_script.have_axe == true:

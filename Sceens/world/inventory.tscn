@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://chpx1k3dketsm"]
+[gd_scene load_steps=5 format=3 uid="uid://chpx1k3dketsm"]
 
 [ext_resource type="Script" path="res://Scripts/world/inventory.gd" id="1_wx01v"]
+[ext_resource type="Texture2D" uid="uid://bqbllwk0yqeuc" path="res://Assets/Player/Exotic Swords.png" id="2_6klbm"]
+[ext_resource type="Texture2D" uid="uid://ddjetmlond764" path="res://Assets/Player/Armi Black png.png" id="3_ugyxg"]
+[ext_resource type="Texture2D" uid="uid://covhkhom2kj6a" path="res://Assets/Player/flammin stick.png" id="4_5petw"]
 
 [node name="inventory" type="CanvasLayer"]
 script = ExtResource("1_wx01v")
@@ -36,8 +39,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 icon_alignment = 1
 
-[node name="slot_image1" type="TextureRect" parent="Control/HBoxContainer/slot1"]
-layout_mode = 1
+[node name="slot_image1" type="Sprite2D" parent="Control/HBoxContainer/slot1"]
+position = Vector2(4, 4.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_6klbm")
+hframes = 3
+vframes = 3
+frame = 5
 
 [node name="slot2" type="Button" parent="Control/HBoxContainer"]
 visible = false
@@ -46,13 +54,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 icon_alignment = 1
 
-[node name="slot_image2" type="TextureRect" parent="Control/HBoxContainer/slot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="slot_image2" type="Sprite2D" parent="Control/HBoxContainer/slot2"]
+position = Vector2(4, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ugyxg")
+region_enabled = true
+region_rect = Rect2(57.76, 14.8543, 32.3179, 33.9937)
 
 [node name="slot3" type="Button" parent="Control/HBoxContainer"]
 visible = false
@@ -61,13 +68,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 icon_alignment = 1
 
-[node name="slot_image3" type="TextureRect" parent="Control/HBoxContainer/slot3"]
+[node name="slot_image3" type="Sprite2D" parent="Control/HBoxContainer/slot3"]
+position = Vector2(4.5, 4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5petw")
+hframes = 4
+
+[node name="toorch_counter" type="Label" parent="Control/HBoxContainer/slot3"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = 0.5
+offset_right = 35.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="slot4" type="Button" parent="Control/HBoxContainer"]
 visible = false
