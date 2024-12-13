@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_play_pressed():
 	GLobal_script.restart_game = true
-	get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')
+	get_tree().change_scene_to_file('res://Sceens/cutsceen/prolog_1.tscn')
 
 
 func _on_quit_pressed():

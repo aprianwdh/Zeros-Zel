@@ -27,6 +27,7 @@ var level_player = 1
 var exp_threshold = [0, 50, 100, 150, 200, 250]
 var light_on = false
 var save_path = "user://variabel.save"
+var current_quest = 'prolog1'
 
 func _ready():
 	light_on = false
@@ -109,7 +110,8 @@ func save():
 		"current_weapon": current_weapon,
 		"exp_player": exp_player,
 		"level_player": level_player,
-		"light_on": light_on
+		"light_on": light_on,
+		"current_quest":current_quest
 	}
 
 	# Simpan Dictionary ke file
@@ -153,6 +155,7 @@ func load():
 			exp_player = load_data["exp_player"]
 			level_player = load_data["level_player"]
 			light_on = load_data["light_on"]
+			current_quest = load_data["current_quest"]
 
 			print("Game loaded successfully!")
 		else:

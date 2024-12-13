@@ -21,8 +21,8 @@ func _on_continue_pressed():
 	close()
 
 
-func _on_save_pressed():
-	GLobal_script.save()
+func _on_quest_pressed():
+	$"../../quest_ui".show()
 
 
 func _on_exit_pressed():

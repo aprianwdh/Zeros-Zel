@@ -129,7 +129,7 @@ text = "ZEROS and ZEL
 
 [node name="new_game" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "PLAY"
+text = "NEW GAME"
 
 [node name="countinue" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

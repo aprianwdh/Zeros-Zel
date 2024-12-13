@@ -41,17 +41,16 @@ alignment = 1
 [node name="continue" type="Button" parent="TextureRect/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "countinue"
+text = "CONTINUE"
 
-[node name="save" type="Button" parent="TextureRect/CenterContainer"]
+[node name="quest" type="Button" parent="TextureRect/CenterContainer"]
 layout_mode = 2
-text = "save"
+text = "QUEST"
 
 [node name="exit" type="Button" parent="TextureRect/CenterContainer"]
 layout_mode = 2
-text = "exit
-"
+text = "EXIT"
 
 [connection signal="pressed" from="TextureRect/CenterContainer/continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="TextureRect/CenterContainer/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="TextureRect/CenterContainer/quest" to="." method="_on_quest_pressed"]
 [connection signal="pressed" from="TextureRect/CenterContainer/exit" to="." method="_on_exit_pressed"]
