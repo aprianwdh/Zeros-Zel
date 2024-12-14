@@ -17,6 +17,7 @@ Assets:
 - https://pixelfrog-assets.itch.io/tiny-swords
 - https://megacrash.itch.io/chat-bubbles
 - https://pixelfrog-assets.itch.io/treasure-hunters
+- https://rishikiram.itch.io/ship-pixel-sprite
 
 Special Thanks:
 - Myself (for never giving up)
