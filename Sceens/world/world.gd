@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GLobal_script.current_quest == 'prolog3':
+		$cutsceen.play("chapter_1_1")
 	#GLobal_script.load_position_player = false #opsional
 	$TileMap.show()
 	$AnimationPlayer.play("fade_out")
@@ -68,3 +70,8 @@ func _on_pause_menu_closed_pause_menu():
 
 func _on_pause_menu_opened_pause_menu():
 	get_tree().paused = true
+
+
+func _on_cutsceen_animation_finished(anim_name):
+	if anim_name == "chapter_1_1":
+		GLobal_script.current_quest = 'chap1_1'

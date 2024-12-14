@@ -8,6 +8,8 @@ func _ready():
 		$AnimationPlayer.play("prolog_1")
 	elif GLobal_script.current_quest == 'prolog2':
 		$AnimationPlayer.play("prolog_2")
+	elif GLobal_script.current_quest == 'prolog3':
+		$AnimationPlayer.play("prolog_3")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +34,9 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name == 'prolog_2':
 		get_tree().change_scene_to_file('res://Sceens/world/island.tscn')
 		GLobal_script.current_quest = 'prolog3'
+	elif anim_name == 'prolog_3':
+		get_tree().change_scene_to_file("res://Sceens/world/village.tscn")
+
 
 
 

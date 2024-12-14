@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://ba7c613sub74o"]
+[gd_scene load_steps=89 format=3 uid="uid://ba7c613sub74o"]
 
 [ext_resource type="Script" path="res://Scripts/world/island.gd" id="1_b46vg"]
 [ext_resource type="Texture2D" uid="uid://d0qqkeaujyh6y" path="res://Assets/world/spr_cave.png" id="2_2yrw5"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://de0rhj43vs5sr" path="res://Sceens/world/pause_menu.tscn" id="16_0gnv4"]
 [ext_resource type="Script" path="res://Scripts/world/island_pause.gd" id="16_8edpt"]
 [ext_resource type="PackedScene" uid="uid://b0enw06vowsx0" path="res://Sceens/world/quest_ui.tscn" id="18_p8o6n"]
+[ext_resource type="PackedScene" uid="uid://bv5qu7j4c0fo0" path="res://Sceens/Colectible/kayu.tscn" id="19_3phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpsdi"]
 texture = ExtResource("2_2yrw5")
@@ -3264,6 +3265,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stc10"]
 size = Vector2(53, 71.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5dl"]
+size = Vector2(36, 70)
+
 [node name="island" type="Node2D"]
 script = ExtResource("1_b46vg")
 
@@ -3351,6 +3355,48 @@ script = ExtResource("16_8edpt")
 [node name="quest_ui" parent="." instance=ExtResource("18_p8o6n")]
 visible = false
 
+[node name="kayu" type="Node2D" parent="."]
+visible = false
+
+[node name="kayu" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(175, 4)
+
+[node name="kayu2" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(35, 110)
+
+[node name="kayu3" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(46, 189)
+
+[node name="kayu4" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(356, 201)
+
+[node name="kayu5" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(351, 87)
+
+[node name="kayu6" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(124, 103)
+
+[node name="kayu7" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(51, 244)
+
+[node name="kayu8" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(158, 275)
+
+[node name="kayu9" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(373, 282)
+
+[node name="kayu10" parent="kayu" instance=ExtResource("19_3phco")]
+position = Vector2(476, -11)
+
+[node name="prolog3_area" type="Area2D" parent="."]
+position = Vector2(466, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prolog3_area"]
+position = Vector2(-8, -1)
+shape = SubResource("RectangleShape2D_ed5dl")
+debug_color = Color(0.657228, 0.371011, 0.907387, 0.42)
+
 [connection signal="body_entered" from="prolog2_area" to="." method="_on_prolog_2_area_body_entered"]
 [connection signal="closed_pause_menu" from="UI/pause_menu" to="." method="_on_pause_menu_closed_pause_menu"]
 [connection signal="opened_pause_menu" from="UI/pause_menu" to="." method="_on_pause_menu_opened_pause_menu"]
+[connection signal="body_entered" from="prolog3_area" to="." method="_on_prolog_3_area_body_entered"]

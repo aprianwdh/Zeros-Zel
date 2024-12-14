@@ -14,5 +14,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		GLobal_script.kayu_player += 1
-		#print(GLobal_script.coin_player)
+		print(GLobal_script.kayu_player)
 		queue_free()
