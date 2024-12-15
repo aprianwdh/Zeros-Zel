@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://de0rhj43vs5sr"]
+[gd_scene load_steps=4 format=3 uid="uid://de0rhj43vs5sr"]
 
 [ext_resource type="Texture2D" uid="uid://na6d0jhu5cwu" path="res://Assets/UI/Banners/Banner_Vertical.png" id="1_suyn8"]
 [ext_resource type="Script" path="res://Scripts/world/pause_menu.gd" id="1_wmoob"]
+[ext_resource type="PackedScene" uid="uid://b0enw06vowsx0" path="res://Sceens/world/quest_ui.tscn" id="3_wt28a"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
@@ -51,6 +52,10 @@ text = "QUEST"
 layout_mode = 2
 text = "EXIT"
 
+[node name="quest_ui" parent="." instance=ExtResource("3_wt28a")]
+visible = false
+
 [connection signal="pressed" from="TextureRect/CenterContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="TextureRect/CenterContainer/quest" to="." method="_on_quest_pressed"]
 [connection signal="pressed" from="TextureRect/CenterContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="close" from="quest_ui" to="." method="_on_quest_ui_close"]

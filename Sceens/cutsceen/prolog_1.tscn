@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://c25s2yyg1051a"]
+[gd_scene load_steps=88 format=3 uid="uid://c25s2yyg1051a"]
 
 [ext_resource type="Script" path="res://Scripts/cutsceen/prolog_1.gd" id="1_cg7ot"]
 [ext_resource type="Texture2D" uid="uid://d0qqkeaujyh6y" path="res://Assets/world/spr_cave.png" id="1_wygs2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://4wg8pvpct0gx" path="res://Assets/kapal/3.png" id="12_fq1fp"]
 [ext_resource type="Texture2D" uid="uid://bjdgd2vtiaov1" path="res://Assets/kapal/2.png" id="13_pj3wh"]
 [ext_resource type="Texture2D" uid="uid://cfi37kd42rwga" path="res://Assets/kapal/1.png" id="14_urwjr"]
+[ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="15_im3jr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpsdi"]
 texture = ExtResource("1_wygs2")
@@ -2917,6 +2918,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(206, 212)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("kapal_karam:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ShipFull:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_mb6tj"]
 resource_name = "prolog_1"
@@ -3177,6 +3202,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(459, 169)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("kapal_karam:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ShipFull:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_t75fg"]
 resource_name = "prolog_3"
@@ -3312,6 +3361,30 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(459, 169)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("kapal_karam:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ShipFull:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l7y45"]
@@ -3854,6 +3927,7 @@ visible_ratio = 0.0
 color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 
 [node name="kapal_karam" type="Node2D" parent="."]
+visible = false
 
 [node name="3" type="Sprite2D" parent="kapal_karam"]
 position = Vector2(563, 163)
@@ -3866,5 +3940,10 @@ texture = ExtResource("13_pj3wh")
 [node name="1" type="Sprite2D" parent="kapal_karam"]
 position = Vector2(547, 145)
 texture = ExtResource("14_urwjr")
+
+[node name="ShipFull" type="Sprite2D" parent="."]
+position = Vector2(626, 175)
+rotation = -0.00586721
+texture = ExtResource("15_im3jr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

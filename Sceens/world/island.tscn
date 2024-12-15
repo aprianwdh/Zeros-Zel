@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://ba7c613sub74o"]
+[gd_scene load_steps=88 format=3 uid="uid://ba7c613sub74o"]
 
 [ext_resource type="Script" path="res://Scripts/world/island.gd" id="1_b46vg"]
 [ext_resource type="Texture2D" uid="uid://d0qqkeaujyh6y" path="res://Assets/world/spr_cave.png" id="2_2yrw5"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://cfi37kd42rwga" path="res://Assets/kapal/1.png" id="15_ttjnq"]
 [ext_resource type="PackedScene" uid="uid://de0rhj43vs5sr" path="res://Sceens/world/pause_menu.tscn" id="16_0gnv4"]
 [ext_resource type="Script" path="res://Scripts/world/island_pause.gd" id="16_8edpt"]
-[ext_resource type="PackedScene" uid="uid://b0enw06vowsx0" path="res://Sceens/world/quest_ui.tscn" id="18_p8o6n"]
 [ext_resource type="PackedScene" uid="uid://bv5qu7j4c0fo0" path="res://Sceens/Colectible/kayu.tscn" id="19_3phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpsdi"]
@@ -3351,9 +3350,6 @@ process_mode = 3
 script = ExtResource("16_8edpt")
 
 [node name="pause_menu" parent="UI" instance=ExtResource("16_0gnv4")]
-
-[node name="quest_ui" parent="." instance=ExtResource("18_p8o6n")]
-visible = false
 
 [node name="kayu" type="Node2D" parent="."]
 visible = false

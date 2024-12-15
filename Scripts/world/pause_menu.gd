@@ -22,8 +22,12 @@ func _on_continue_pressed():
 
 
 func _on_quest_pressed():
-	$"../../quest_ui".show()
-
-
+	$quest_ui.show()
+	$".".hide()
+	
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_quest_ui_close():
+	$".".show()

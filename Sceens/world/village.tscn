@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgij7o7rysbcx"]
+[gd_scene load_steps=8 format=3 uid="uid://bgij7o7rysbcx"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_nvhfr"]
 [ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="3_yd4aj"]
+[ext_resource type="Texture2D" uid="uid://dx2wkqri7h4vm" path="res://Assets/UI/buble_chat/Chat-1.png" id="4_0jxsp"]
 [ext_resource type="PackedScene" uid="uid://cwp7kl1qmgs4a" path="res://Sceens/world/tree.tscn" id="5_c6aha"]
 
 [sub_resource type="Animation" id="Animation_ynuv6"]
@@ -42,10 +43,58 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buble_chat/buble_chat:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buble_chat/buble_chat/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["phew akhirnya sampai juga"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("buble_chat/buble_chat/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("buble_chat/buble_chat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 392)]
+}
 
 [sub_resource type="Animation" id="Animation_2oplg"]
 resource_name = "chapter_1_1"
-length = 6.0
+length = 13.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,10 +102,10 @@ tracks/0/path = NodePath("cutsceen_object/kapal:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-316, 437), Vector2(34, 469), Vector2(34, 469)]
+"values": [Vector2(-316, 437), Vector2(34, 469), Vector2(34, 469), Vector2(395, 609)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,6 +130,54 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buble_chat/buble_chat:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 13.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buble_chat/buble_chat/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4, 6.4, 8.8, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["phew akhirnya sampai juga", "hemm tempat ini tidak banyak berubahya", "baiklah Zeoros ayo pergi ke panti asuhan", "kakek dan lainnya pasti sudah sangat khawatir"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("buble_chat/buble_chat/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4, 4.2, 6.2, 6.4, 6.6, 8.6, 8.8, 9, 11, 11.2, 11.4, 13.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("buble_chat/buble_chat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 392)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qg8qm"]
@@ -125,9 +222,6 @@ position = Vector2(277, 247)
 [node name="Player" parent="TileMap" index="1"]
 position = Vector2(-338, 432)
 
-[node name="inventory_manager" parent="." index="2"]
-visible = false
-
 [node name="time_cycle" parent="." index="4"]
 visible = false
 
@@ -144,5 +238,36 @@ position = Vector2(-23, -4)
 visible = false
 position = Vector2(-338, 432)
 texture = ExtResource("3_yd4aj")
+
+[node name="buble_chat" type="Node2D" parent="." index="7"]
+z_index = 1
+position = Vector2(6, -5)
+
+[node name="buble_chat" type="Sprite2D" parent="buble_chat" index="0"]
+position = Vector2(-6, 392)
+texture = ExtResource("4_0jxsp")
+region_enabled = true
+region_rect = Rect2(666.962, 215.306, 58.4595, 31.3364)
+
+[node name="Label" type="Label" parent="buble_chat/buble_chat" index="0"]
+offset_left = -22.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 15.0
+scale = Vector2(0.3, 0.3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "zeros"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="buble_chat/buble_chat" index="1"]
+offset_left = -22.0
+offset_top = -3.0
+offset_right = 198.0
+offset_bottom = 20.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+text = "phew akhirnya sampai juga"
+fit_content = true
+scroll_following = true
 
 [connection signal="animation_finished" from="cutsceen" to="." method="_on_cutsceen_animation_finished"]
