@@ -29,12 +29,17 @@ var light_on = false
 var save_path = "user://variabel.save"
 var current_quest = 'prolog1'
 
+
 func _ready():
 	light_on = false
 
 # Fungsi untuk Game Over
 func Game_Over():
 	get_tree().change_scene_to_file("res://Sceens/world/game_over.tscn")
+
+func save_position_player(positionx,positiony):
+	last_position_player_x = positionx
+	last_position_player_y = positiony
 
 
 # Fungsi untuk proses tiap frame

@@ -11,6 +11,9 @@ var death_player = false
 var coldown_attack = false
 
 func _ready():
+	if GLobal_script.load_position_player:
+		$".".global_position = Vector2(GLobal_script.last_position_player_x,GLobal_script.last_position_player_y)
+		GLobal_script.load_position_player = false
 	update_health_bar()
 	if GLobal_script.restart_game == true:
 		GLobal_script.health_player = 100
@@ -131,3 +134,6 @@ func die_player():
 		
 func update_health_bar():
 	$"health bar/TextureRect/ProgressBar".value = GLobal_script.health_player
+
+
+

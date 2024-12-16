@@ -484,8 +484,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eohwe"]
-radius = 4.0
-height = 10.0
+radius = 3.0
+height = 6.0
 
 [sub_resource type="Animation" id="Animation_etqca"]
 length = 0.001
@@ -1407,16 +1407,16 @@ size = Vector2(10, 19.75)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(322, 180)
 script = ExtResource("1_4llxy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_fr2hw")
 animation = &"iddle_up"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_eohwe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1425,6 +1425,7 @@ libraries = {
 }
 
 [node name="attack_area" type="Area2D" parent="." groups=["area_player"]]
+position = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
 position = Vector2(0.25, 12)
