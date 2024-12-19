@@ -140,7 +140,7 @@ tracks/3/path = NodePath("buble_chat/buble_chat:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 4, 13.4),
+"times": PackedFloat32Array(0, 4, 13.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -164,7 +164,7 @@ tracks/5/path = NodePath("buble_chat/buble_chat/RichTextLabel:visible_ratio")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(4, 4.2, 6.2, 6.4, 6.6, 8.6, 8.8, 9, 11, 11.2, 11.4, 13.4),
+"times": PackedFloat32Array(4, 4.2, 6.2, 6.4, 6.6, 8.6, 8.8, 9, 11, 11.2, 11.4, 13.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
@@ -245,7 +245,6 @@ position = Vector2(-338, 432)
 texture = ExtResource("3_yd4aj")
 
 [node name="buble_chat" type="Node2D" parent="." index="7"]
-visible = false
 z_index = 1
 position = Vector2(6, -5)
 

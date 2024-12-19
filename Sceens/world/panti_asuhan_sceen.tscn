@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfjxcxgx6tmq"]
+[gd_scene load_steps=11 format=3 uid="uid://rfjxcxgx6tmq"]
 
 [ext_resource type="Texture2D" uid="uid://brgv8hglxcxw3" path="res://Assets/world/atlas_16x.png" id="1_cbbu5"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan_sceen.gd" id="1_is2p3"]
 [ext_resource type="PackedScene" uid="uid://6jawmkxjamna" path="res://Sceens/Player/player.tscn" id="2_wv8rb"]
 [ext_resource type="PackedScene" uid="uid://gh1gda34bfxw" path="res://Sceens/cutsceen/fade_transisi.tscn" id="4_rk8f5"]
+[ext_resource type="Texture2D" uid="uid://bpmykfwj6ijbc" path="res://Assets/npc/free_character_1-3.png" id="5_fw2jt"]
+[ext_resource type="PackedScene" uid="uid://cr0flhy7mf6sh" path="res://Sceens/Colectible/axe.tscn" id="6_630wy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqoeb"]
 texture = ExtResource("1_cbbu5")
@@ -2256,6 +2258,8 @@ sources/0 = SubResource("TileSetAtlasSource_iqoeb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbg3h"]
 size = Vector2(32, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17ct4"]
+
 [node name="Panti_asuhan_sceen" type="Node2D"]
 script = ExtResource("1_is2p3")
 metadata/_edit_horizontal_guides_ = [14.0, 250.0, 288.0]
@@ -2293,5 +2297,23 @@ shape = SubResource("RectangleShape2D_fbg3h")
 
 [node name="fade_transisi" parent="." instance=ExtResource("4_rk8f5")]
 
+[node name="kakek" type="Sprite2D" parent="."]
+position = Vector2(243, 84)
+texture = ExtResource("5_fw2jt")
+hframes = 12
+vframes = 7
+frame = 1
+
+[node name="panti_sceen" type="Area2D" parent="."]
+position = Vector2(242, 106)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="panti_sceen"]
+shape = SubResource("RectangleShape2D_17ct4")
+
+[node name="sword" parent="." instance=ExtResource("6_630wy")]
+position = Vector2(209, 118)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="panti_sceen" to="." method="_on_panti_sceen_body_entered"]
+[connection signal="body_exited" from="panti_sceen" to="." method="_on_panti_sceen_body_exited"]

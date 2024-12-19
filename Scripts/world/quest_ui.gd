@@ -16,6 +16,10 @@ func _process(delta):
 		quest_label.text = 'Carilah 10 Kayu untuk memperbaiki kapal'
 	elif GLobal_script.current_quest == 'chap1_1':
 		quest_label.text = 'Pergilah ke Panti Asuhan untuk menemui Kakek dan yang lain'
+	elif GLobal_script.current_quest == 'chap1_2':
+		quest_label.text = 'Tebanglah 10 kayu (' + str(GLobal_script.kayu_player) +'/10)'
+	elif GLobal_script.current_quest == 'chap1_3':
+		quest_label.text = 'Pergilah ke kota untuk menjual kayu'
 
 
 func _on_texture_button_pressed():

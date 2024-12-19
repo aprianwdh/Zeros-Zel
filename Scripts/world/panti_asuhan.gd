@@ -14,7 +14,11 @@ extends Area2D
 
 func change_Sceen():
 	if GLobal_script.transisi_sceen == true :
-		if GLobal_script.current_sceen == 'panti_asuhan':
+		if GLobal_script.current_sceen == 'panti_asuhan' and GLobal_script.current_quest == "chap1_1":
+			get_tree().change_scene_to_file("res://Sceens/cutsceen/chap_1_1.tscn")
+		elif GLobal_script.current_sceen == 'panti_asuhan' and GLobal_script.kayu_player >= 10:
+			get_tree().change_scene_to_file("res://Sceens/cutsceen/chap_1_1.tscn")
+		else:
 			get_tree().change_scene_to_file('res://Sceens/world/panti_asuhan_sceen.tscn')
 
 
