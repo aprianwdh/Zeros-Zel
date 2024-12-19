@@ -18,6 +18,7 @@ Assets:
 - https://megacrash.itch.io/chat-bubbles
 - https://pixelfrog-assets.itch.io/treasure-hunters
 - https://rishikiram.itch.io/ship-pixel-sprite
+- https://gif-superretroworld.itch.io/marketplace
 
 Special Thanks:
 - Myself (for never giving up)
