@@ -28,6 +28,8 @@ var exp_threshold = [0, 50, 100, 150, 200, 250]
 var light_on = false
 var save_path = "user://variabel.save"
 var current_quest = 'prolog1'
+var saving = false
+var interact = false
 
 
 func _ready():
@@ -92,6 +94,7 @@ func ligh_player_on():
 
 # Fungsi untuk menyimpan data
 func save():
+	saving = true
 	# Kumpulkan semua data yang ingin disimpan ke dalam Dictionary
 	var save_data = {
 		"transisi_sceen": transisi_sceen,
@@ -116,7 +119,8 @@ func save():
 		"exp_player": exp_player,
 		"level_player": level_player,
 		"light_on": light_on,
-		"current_quest":current_quest
+		"current_quest":current_quest,
+		"saving":saving
 	}
 
 	# Simpan Dictionary ke file
@@ -161,9 +165,37 @@ func load():
 			level_player = load_data["level_player"]
 			light_on = load_data["light_on"]
 			current_quest = load_data["current_quest"]
+			saving = load_data["saving"]
 
 			print("Game loaded successfully!")
 		else:
 			print("Failed to load game.")
 	else:
 		print("Save file not found.")
+		
+func is_saving():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		if file:
+			var load_data = file.get_var()  # Membaca Dictionary dari file
+			file.close()
+
+			# Tetapkan kembali data ke variabel global
+			saving = load_data["saving"]
+	
+func delete_save():
+	if FileAccess.file_exists(save_path):  # Mengecek apakah file save ada
+		var dir = DirAccess.open("user://")  # Membuka direktori `user://`
+		if dir:
+			var error = dir.remove("user://" + save_path.get_file())  # Menghapus file
+			if error == OK:
+				print("Save file deleted successfully!")
+			else:
+				print("Failed to delete save file. Error code:", error)
+		else:
+			print("Failed to open directory.")
+	else:
+		print("No save file found to delete.")
+
+
+

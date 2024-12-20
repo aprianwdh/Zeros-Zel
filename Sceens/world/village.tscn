@@ -245,6 +245,7 @@ position = Vector2(-338, 432)
 texture = ExtResource("3_yd4aj")
 
 [node name="buble_chat" type="Node2D" parent="." index="7"]
+visible = false
 z_index = 1
 position = Vector2(6, -5)
 

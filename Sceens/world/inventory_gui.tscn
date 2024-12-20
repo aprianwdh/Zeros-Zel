@@ -14,6 +14,7 @@ offset_bottom = 0.0799942
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_42cy2")
+metadata/_edit_vertical_guides_ = [125.0]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0

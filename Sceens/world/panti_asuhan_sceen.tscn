@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rfjxcxgx6tmq"]
+[gd_scene load_steps=14 format=3 uid="uid://rfjxcxgx6tmq"]
 
 [ext_resource type="Texture2D" uid="uid://brgv8hglxcxw3" path="res://Assets/world/atlas_16x.png" id="1_cbbu5"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan_sceen.gd" id="1_is2p3"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://gh1gda34bfxw" path="res://Sceens/cutsceen/fade_transisi.tscn" id="4_rk8f5"]
 [ext_resource type="Texture2D" uid="uid://bpmykfwj6ijbc" path="res://Assets/npc/free_character_1-3.png" id="5_fw2jt"]
 [ext_resource type="PackedScene" uid="uid://cr0flhy7mf6sh" path="res://Sceens/Colectible/axe.tscn" id="6_630wy"]
+[ext_resource type="Script" path="res://Scripts/world/save_area.gd" id="7_fk7hf"]
+[ext_resource type="Texture2D" uid="uid://ck8vpydobwn7t" path="res://Assets/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="8_o0oqg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqoeb"]
 texture = ExtResource("1_cbbu5")
@@ -2260,6 +2262,9 @@ size = Vector2(32, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17ct4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdd7u"]
+size = Vector2(31, 8)
+
 [node name="Panti_asuhan_sceen" type="Node2D"]
 script = ExtResource("1_is2p3")
 metadata/_edit_horizontal_guides_ = [14.0, 250.0, 288.0]
@@ -2313,7 +2318,39 @@ shape = SubResource("RectangleShape2D_17ct4")
 [node name="sword" parent="." instance=ExtResource("6_630wy")]
 position = Vector2(209, 118)
 
+[node name="save_area" type="Area2D" parent="."]
+script = ExtResource("7_fk7hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="save_area"]
+position = Vector2(40.5, 92)
+shape = SubResource("RectangleShape2D_mdd7u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_right = 96.0
+offset_bottom = 64.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_o0oqg")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 131.0
+offset_top = 5.0
+offset_right = 232.0
+offset_bottom = 28.0
+scale = Vector2(0.7, 0.7)
+text = "GAME SAVED"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="panti_sceen" to="." method="_on_panti_sceen_body_entered"]
 [connection signal="body_exited" from="panti_sceen" to="." method="_on_panti_sceen_body_exited"]
+[connection signal="body_entered" from="save_area" to="save_area" method="_on_body_entered"]
+[connection signal="body_exited" from="save_area" to="save_area" method="_on_body_exited"]
+[connection signal="body_masuk_area" from="save_area" to="Player" method="_on_save_area_body_masuk_area"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animasi_player = $AnimationPlayer
+@onready var icon_interact = $Icon_interact
 
 const SPEED = 2000
 var last_direction = Vector2.ZERO
@@ -27,6 +28,7 @@ func _physics_process(delta):
 		move_player(delta)
 		update_animation(delta)
 		animasi_attack()
+		update_icon_interact()
 	
 func move_player(delta):
 	var direction = Input.get_vector('left','right','up','down')
@@ -134,6 +136,14 @@ func die_player():
 		
 func update_health_bar():
 	$"health bar/TextureRect/ProgressBar".value = GLobal_script.health_player
+
+func update_icon_interact():
+	if GLobal_script.interact == true:
+		icon_interact.show()
+		icon_interact.play("default")
+	else :
+		icon_interact.hide()
+
 
 
 
