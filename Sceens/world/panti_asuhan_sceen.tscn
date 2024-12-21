@@ -2266,6 +2266,7 @@ size = Vector2(32, 15)
 size = Vector2(31, 8)
 
 [node name="Panti_asuhan_sceen" type="Node2D"]
+modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_is2p3")
 metadata/_edit_horizontal_guides_ = [14.0, 250.0, 288.0]
 metadata/_edit_vertical_guides_ = [1.0, 309.0, -73.0, 377.0]

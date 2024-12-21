@@ -6118,6 +6118,7 @@ sources/16 = SubResource("TileSetAtlasSource_hmodu")
 sources/17 = SubResource("TileSetAtlasSource_jwuaw")
 
 [node name="BaseLevel" type="Node2D"]
+modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_faq1y")
 
 [node name="TileMap" type="TileMap" parent="."]

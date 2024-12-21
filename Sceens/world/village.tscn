@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgij7o7rysbcx"]
+[gd_scene load_steps=13 format=3 uid="uid://bgij7o7rysbcx"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_nvhfr"]
 [ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="3_yd4aj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan.gd" id="5_1f4by"]
 [ext_resource type="PackedScene" uid="uid://cwp7kl1qmgs4a" path="res://Sceens/world/tree.tscn" id="5_c6aha"]
 [ext_resource type="PackedScene" uid="uid://byoqqyt3pg8iv" path="res://Sceens/world/transisi.tscn" id="6_102bn"]
+[ext_resource type="Script" path="res://Scripts/world/City_enterance.gd" id="7_74es3"]
 
 [sub_resource type="Animation" id="Animation_ynuv6"]
 length = 0.001
@@ -191,6 +192,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61y5v"]
 size = Vector2(20, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6dkc"]
+size = Vector2(40, 20)
+
 [node name="village" instance=ExtResource("1_nvhfr")]
 
 [node name="TileMap" parent="." index="0"]
@@ -226,6 +230,12 @@ position = Vector2(277, 247)
 
 [node name="Player" parent="TileMap" index="1"]
 position = Vector2(-338, 432)
+
+[node name="Camera2D" parent="TileMap/Player" index="9"]
+limit_left = -600
+limit_top = -250
+limit_right = 800
+limit_bottom = 800
 
 [node name="time_cycle" parent="." index="4"]
 visible = false
@@ -286,6 +296,16 @@ shape = SubResource("RectangleShape2D_61y5v")
 
 [node name="transisi" parent="." index="9" instance=ExtResource("6_102bn")]
 
+[node name="City_enterance" type="Area2D" parent="." index="10"]
+position = Vector2(347, -172)
+script = ExtResource("7_74es3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="City_enterance" index="0"]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_h6dkc")
+
 [connection signal="animation_finished" from="cutsceen" to="." method="_on_cutsceen_animation_finished"]
 [connection signal="body_entered" from="panti_asuhan" to="panti_asuhan" method="_on_body_entered"]
 [connection signal="body_exited" from="panti_asuhan" to="panti_asuhan" method="_on_body_exited"]
+[connection signal="body_entered" from="City_enterance" to="City_enterance" method="_on_body_entered"]
+[connection signal="body_exited" from="City_enterance" to="City_enterance" method="_on_body_exited"]
