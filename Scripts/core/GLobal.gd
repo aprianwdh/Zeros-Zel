@@ -29,7 +29,7 @@ var light_on = false
 var save_path = "user://variabel.save"
 var current_quest = 'prolog1'
 var saving = false
-var interact = false
+var interact = ''
 
 
 func _ready():

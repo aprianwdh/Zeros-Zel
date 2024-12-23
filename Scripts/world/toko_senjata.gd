@@ -1,7 +1,6 @@
 extends Area2D
 
-signal body_masuk_area
-signal body_keluar_area
+signal toko_senjata_interact
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,22 +8,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("interact") and GLobal_script.interact == "save_area":
-		GLobal_script.save()
-		$"../CanvasLayer".show()
-		await get_tree().create_timer(1).timeout
-		$"../CanvasLayer".hide()
-		print("save_presed")
+	if Input.is_action_just_pressed("interact") and GLobal_script.interact == "toko_senjata":
+		emit_signal("toko_senjata_interact")
 
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		GLobal_script.interact = "save_area"
-		emit_signal("body_masuk_area")
-
+		GLobal_script.interact = "toko_senjata"
 
 
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		GLobal_script.interact = ''
-		emit_signal("body_keluar_area")

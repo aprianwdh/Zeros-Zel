@@ -138,7 +138,7 @@ func update_health_bar():
 	$"health bar/TextureRect/ProgressBar".value = GLobal_script.health_player
 
 func update_icon_interact():
-	if GLobal_script.interact == true:
+	if GLobal_script.interact != '':
 		icon_interact.show()
 		icon_interact.play("default")
 	else :
