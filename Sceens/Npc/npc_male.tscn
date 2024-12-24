@@ -1,0 +1,134 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsmko86yrq4tx"]
+
+[ext_resource type="Texture2D" uid="uid://dd2do372akkjl" path="res://Assets/npc/Generic Male NPCs.png" id="1_6m4et"]
+[ext_resource type="Script" path="res://Scripts/Npc/npc_male.gd" id="1_6mn64"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiyad"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geovl"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(0, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnfy"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j72mn"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(160, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dchwk"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(0, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u746"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(80, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyj7g"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(160, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afmpr"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(0, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mysd0"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(80, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hohjf"]
+atlas = ExtResource("1_6m4et")
+region = Rect2(160, 360, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xmui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiyad")
+}],
+"loop": true,
+"name": &"iddle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geovl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjnfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j72mn")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dchwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u746")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyj7g")
+}],
+"loop": true,
+"name": &"move_side",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afmpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mysd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hohjf")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sml2d"]
+radius = 3.0
+height = 6.0
+
+[node name="Npc_male" type="CharacterBody2D"]
+script = ExtResource("1_6mn64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_3xmui")
+animation = &"move_side"
+
+[node name="RayCast_Right" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 5)
+target_position = Vector2(20, 0)
+
+[node name="RayCast_left" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 5)
+target_position = Vector2(-20, 0)
+
+[node name="RayCast_Down" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 5)
+target_position = Vector2(0, 20)
+
+[node name="RayCast_Up" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 5)
+target_position = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_sml2d")

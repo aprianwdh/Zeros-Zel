@@ -30,6 +30,7 @@ var save_path = "user://variabel.save"
 var current_quest = 'prolog1'
 var saving = false
 var interact = ''
+var stamina = 100
 
 
 func _ready():

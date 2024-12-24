@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bep68jiujbwhx"]
+[gd_scene load_steps=5 format=3 uid="uid://bep68jiujbwhx"]
 
 [ext_resource type="Texture2D" uid="uid://drvkbai7im02f" path="res://Assets/world/InventoryRect.png" id="1_21koy"]
 [ext_resource type="Script" path="res://Scripts/world/inventory_gui.gd" id="1_42cy2"]
 [ext_resource type="PackedScene" uid="uid://b5wpn22bbk1bp" path="res://Sceens/world/slot_gui.tscn" id="2_cxddq"]
+[ext_resource type="Texture2D" uid="uid://by4goq2bgef44" path="res://Assets/collectable/W_Idle.png" id="4_owf0k"]
 
 [node name="inventory_gui" type="Control"]
 custom_minimum_size = Vector2(125, 86)
@@ -41,38 +42,19 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="slot_gui" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
+[node name="kayu" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
 layout_mode = 2
 
-[node name="slot_gui2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
+[node name="WIdle" type="Sprite2D" parent="NinePatchRect/GridContainer/kayu"]
+position = Vector2(10.5, 3)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_owf0k")
 
-[node name="slot_gui3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui10" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui11" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
-
-[node name="slot_gui12" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cxddq")]
-layout_mode = 2
+[node name="Label_kayu" type="Label" parent="NinePatchRect/GridContainer/kayu"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 12.0
+offset_right = 41.5
+offset_bottom = 35.0
+scale = Vector2(0.3, 0.3)
+horizontal_alignment = 1

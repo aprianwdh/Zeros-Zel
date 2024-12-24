@@ -3,9 +3,13 @@ extends CharacterBody2D
 @onready var animasi_player = $AnimationPlayer
 @onready var icon_interact = $Icon_interact
 
-const SPEED = 2000
+var SPEED = 2000
+var dash_cooldown = true
 var last_direction = Vector2.ZERO
 @export var can_attck = false
+@onready var dash_timer = $dash_timer
+@onready var particles= $GPUParticles2D
+@onready var stamina_bar = $stamina_bar
 
 
 var death_player = false
@@ -24,11 +28,15 @@ func _ready():
 	animasi_player.play("iddle_down")
 	last_direction.y = 1
 func _physics_process(delta):
+	print("stamina = " + str(GLobal_script.stamina))
 	if death_player == false:
+		dash()
 		move_player(delta)
 		update_animation(delta)
 		animasi_attack()
 		update_icon_interact()
+		update_satmina_bar()
+		update_stamina()
 	
 func move_player(delta):
 	var direction = Input.get_vector('left','right','up','down')
@@ -143,7 +151,31 @@ func update_icon_interact():
 		icon_interact.play("default")
 	else :
 		icon_interact.hide()
+		
+func dash():
+	if Input.is_action_just_pressed("dash") and GLobal_script.stamina >= 50:
+		dash_cooldown = false
+		if !dash_cooldown:
+			dash_timer.start()
+			GLobal_script.stamina -= 50  # Mengurangi stamina
+			particles.emitting = true
+			SPEED = SPEED * 3
 
 
 
+func _on_dash_timer_timeout():
+	dash_cooldown = true
+	particles.emitting = false
+	SPEED = SPEED / 3
+	
+func update_satmina_bar():
+	stamina_bar.value = GLobal_script.stamina
+	
+	
+func update_stamina():
+	if GLobal_script.stamina < 100:
+		GLobal_script.stamina = min(GLobal_script.stamina + 1, 100)  # Membatasi agar stamina tidak lebih dari 100
+		# Tambahkan stamina dengan batas maksimum 100
+		await get_tree().create_timer(3).timeout
 
+		

@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpc2sameljn3y"]
+[gd_scene load_steps=9 format=3 uid="uid://bpc2sameljn3y"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_o6qn2"]
 [ext_resource type="PackedScene" uid="uid://dsw21t6tqbgig" path="res://Sceens/Enemy/slime.tscn" id="2_7eqvj"]
 [ext_resource type="PackedScene" uid="uid://cr0flhy7mf6sh" path="res://Sceens/Colectible/axe.tscn" id="3_gfear"]
 [ext_resource type="PackedScene" uid="uid://cwp7kl1qmgs4a" path="res://Sceens/world/tree.tscn" id="4_1kb5p"]
 [ext_resource type="PackedScene" uid="uid://q7hpl8npdawc" path="res://Sceens/Colectible/torch.tscn" id="5_c02yk"]
+[ext_resource type="PackedScene" uid="uid://bsmko86yrq4tx" path="res://Sceens/Npc/npc_male.tscn" id="6_3p80x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5kkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_licjs"]
+size = Vector2(84, 20)
 
 [node name="testLevel" instance=ExtResource("1_o6qn2")]
 
@@ -19,7 +23,7 @@ layer_2/tile_data = PackedInt32Array(1, 9, 0, 327681, 8, 7, 1310723, 9, 0, 98304
 position = Vector2(-49, 83)
 
 [node name="Player" parent="TileMap" index="1"]
-position = Vector2(113, 205)
+position = Vector2(-48, 257)
 
 [node name="slime" parent="." index="1" instance=ExtResource("2_7eqvj")]
 position = Vector2(438, 169)
@@ -46,6 +50,30 @@ position = Vector2(95, 169)
 
 [node name="torch2" parent="." index="10" instance=ExtResource("5_c02yk")]
 position = Vector2(53, 146)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="11"]
+position = Vector2(-25, 199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_licjs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(-32, 100)
+shape = SubResource("RectangleShape2D_licjs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+position = Vector2(-87, 49)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_licjs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" index="3"]
+position = Vector2(22, 50)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_licjs")
+
+[node name="Npc_male" parent="." index="12" instance=ExtResource("6_3p80x")]
+position = Vector2(-67, 255)
 
 [connection signal="body_entered" from="cave1" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="cave1" to="." method="_on_area_2d_body_exited"]

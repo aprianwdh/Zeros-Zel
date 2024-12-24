@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://6jawmkxjamna"]
+[gd_scene load_steps=97 format=3 uid="uid://6jawmkxjamna"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_4llxy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="2_kjqlf"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://du3fcawyt4lo7" path="res://Assets/Player/shadow.png" id="7_ccb0b"]
 [ext_resource type="Script" path="res://Scripts/Player/player_light.gd" id="8_lmgdy"]
 [ext_resource type="Texture2D" uid="uid://doi0o35xmo4ni" path="res://Assets/UI/buble_chat/Icons-1.png" id="9_hv8eb"]
+[ext_resource type="Texture2D" uid="uid://bdcq8pndx8udk" path="res://Assets/Player/stamina_bar.png" id="10_78op4"]
+[ext_resource type="Texture2D" uid="uid://3nuq7dggs1ye" path="res://Assets/Player/stamina_bar_under.png" id="10_548h1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3lf"]
 atlas = ExtResource("2_kjqlf")
@@ -1434,6 +1436,21 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_6bsse"]
+offsets = PackedFloat32Array(0.0227273, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b6sk1"]
+gradient = SubResource("Gradient_6bsse")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2kfh8"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_b6sk1")
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 y_sort_enabled = true
@@ -1481,4 +1498,32 @@ sprite_frames = SubResource("SpriteFrames_0ayf5")
 frame = 2
 frame_progress = 1.0
 
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_2kfh8")
+
+[node name="stamina_bar" type="TextureProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+fill_mode = 4
+texture_under = ExtResource("10_548h1")
+texture_progress = ExtResource("10_78op4")
+
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
