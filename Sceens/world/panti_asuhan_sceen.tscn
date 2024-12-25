@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rfjxcxgx6tmq"]
+[gd_scene load_steps=17 format=3 uid="uid://rfjxcxgx6tmq"]
 
 [ext_resource type="Texture2D" uid="uid://brgv8hglxcxw3" path="res://Assets/world/atlas_16x.png" id="1_cbbu5"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan_sceen.gd" id="1_is2p3"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cr0flhy7mf6sh" path="res://Sceens/Colectible/axe.tscn" id="6_630wy"]
 [ext_resource type="Script" path="res://Scripts/world/save_area.gd" id="7_fk7hf"]
 [ext_resource type="Texture2D" uid="uid://ck8vpydobwn7t" path="res://Assets/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="8_o0oqg"]
+[ext_resource type="Script" path="res://Scripts/world/inventory_manager.gd" id="9_jm7d3"]
+[ext_resource type="PackedScene" uid="uid://bep68jiujbwhx" path="res://Sceens/world/inventory_gui.tscn" id="10_d6f4l"]
+[ext_resource type="PackedScene" uid="uid://de0rhj43vs5sr" path="res://Sceens/world/pause_menu.tscn" id="11_gyolv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqoeb"]
 texture = ExtResource("1_cbbu5")
@@ -2347,6 +2350,23 @@ offset_right = 232.0
 offset_bottom = 28.0
 scale = Vector2(0.7, 0.7)
 text = "GAME SAVED"
+
+[node name="inventory_manager" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("9_jm7d3")
+
+[node name="inventory_gui" parent="inventory_manager" instance=ExtResource("10_d6f4l")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -43.0
+offset_right = 62.5
+offset_bottom = 43.0
+
+[node name="pause_menu" parent="inventory_manager" instance=ExtResource("11_gyolv")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

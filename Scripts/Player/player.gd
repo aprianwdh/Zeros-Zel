@@ -28,7 +28,6 @@ func _ready():
 	animasi_player.play("iddle_down")
 	last_direction.y = 1
 func _physics_process(delta):
-	print("stamina = " + str(GLobal_script.stamina))
 	if death_player == false:
 		dash()
 		move_player(delta)
@@ -160,6 +159,10 @@ func dash():
 			GLobal_script.stamina -= 50  # Mengurangi stamina
 			particles.emitting = true
 			SPEED = SPEED * 3
+		if !stamina_bar.visible:
+			stamina_bar.visible = true
+			await get_tree().create_timer(3).timeout
+			stamina_bar.visible = false
 
 
 
@@ -174,7 +177,7 @@ func update_satmina_bar():
 	
 func update_stamina():
 	if GLobal_script.stamina < 100:
-		GLobal_script.stamina = min(GLobal_script.stamina + 1, 100)  # Membatasi agar stamina tidak lebih dari 100
+		GLobal_script.stamina = min(GLobal_script.stamina + 0.5, 100)  # Membatasi agar stamina tidak lebih dari 100
 		# Tambahkan stamina dengan batas maksimum 100
 		await get_tree().create_timer(3).timeout
 

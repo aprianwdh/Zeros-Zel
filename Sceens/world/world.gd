@@ -3,12 +3,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(GLobal_script.current_quest)
 	if GLobal_script.current_quest == 'prolog3':
 		$cutsceen.play("chapter_1_1")
 	#GLobal_script.load_position_player = false #opsional
 	$TileMap.show()
 	$fade_transisi.play("fade_out")
 	GLobal_script.current_sceen = 'world'
+	
 	#if GLobal_script.load_position_player:
 		#$TileMap/Player.position = Vector2(GLobal_script.last_position_player_x,GLobal_script.last_position_player_y)
 

@@ -17,9 +17,11 @@ func _process(delta):
 	elif GLobal_script.current_quest == 'chap1_1':
 		quest_label.text = 'Pergilah ke Panti Asuhan untuk menemui Kakek dan yang lain'
 	elif GLobal_script.current_quest == 'chap1_2':
-		quest_label.text = 'Tebanglah 10 kayu (' + str(GLobal_script.kayu_player) +'/10)'
+		quest_label.text = 'Tebanglah 10 kayu (' + str(GLobal_script.kayu_player) +'/10) dan kembalilah ke Panti Asuhan'
 	elif GLobal_script.current_quest == 'chap1_3':
-		quest_label.text = 'Pergilah ke kota untuk menjual kayu'
+		quest_label.text = 'Pergilah ke kota untuk menjual kayu (dibagian Utara pulau)'
+	elif GLobal_script.current_quest == 'chap1_4':
+		quest_label.text = 'Juallah kayu ke toko senjata dan kembalilah ke Desa'
 
 
 func _on_texture_button_pressed():

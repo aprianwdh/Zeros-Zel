@@ -1,4 +1,5 @@
 extends Area2D
+@onready var fade_transisi = $"../fade_transisi"
 
 #func _ready():
 	##GLobal_script.current_sceen = 'cave'
@@ -13,6 +14,8 @@ extends Area2D
 
 
 func change_Sceen():
+	fade_transisi.play("fade_in")
+	await fade_transisi.animation_finished
 	if GLobal_script.transisi_sceen == true :
 		if GLobal_script.current_sceen == 'panti_asuhan' and GLobal_script.current_quest == "chap1_1":
 			get_tree().change_scene_to_file("res://Sceens/cutsceen/chap_1_1.tscn")

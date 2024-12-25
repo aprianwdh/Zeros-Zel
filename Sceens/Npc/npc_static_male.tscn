@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://tymhfgourx5n"]
+
+[ext_resource type="Texture2D" uid="uid://gpxeqw1dxkmk" path="res://Assets/npc/NPC_Characters_v1.0/Male4.png" id="1_c67mo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdwml"]
+atlas = ExtResource("1_c67mo")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7t3a"]
+atlas = ExtResource("1_c67mo")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py33l"]
+atlas = ExtResource("1_c67mo")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcv75"]
+atlas = ExtResource("1_c67mo")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdsyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdwml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7t3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py33l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcv75")
+}],
+"loop": true,
+"name": &"iddle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcpma"]
+radius = 3.0
+
+[node name="npc_static_male" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.8, 0.8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_cdsyi")
+animation = &"iddle"
+autoplay = "iddle"
+frame_progress = 0.766629
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_pcpma")

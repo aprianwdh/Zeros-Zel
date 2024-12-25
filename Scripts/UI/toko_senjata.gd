@@ -6,10 +6,11 @@ extends CanvasLayer
 signal quit_toko_senjata
 @onready var label_coin = $Label_coin
 @onready var kayu_player = $MENU_JUAL/kayu/kayu_player
-var harga_kayu = 200
-@onready var sword = $MENU_BELI/sword
-@onready var pickaxe_button = $pickaxe_button
-@onready var sword_button = $sword_button
+var harga_kayu = 5
+@onready var sword = $MENU_BELI/sword_button
+@onready var pickaxe = $MENU_BELI/pickaxe_button
+@onready var pickaxe_button = $MENU_BELI/pickaxe_button
+@onready var sword_button = $MENU_BELI/sword_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -52,6 +52,7 @@ layout_mode = 2
 text = "JUAL"
 
 [node name="MENU_JUAL" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,6 +137,61 @@ text = "BELI"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="pickaxe_button" type="Button" parent="MENU_BELI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 19.25
+offset_right = 22.0
+offset_bottom = 27.25
+
+[node name="pickaxe" type="Sprite2D" parent="MENU_BELI/pickaxe_button"]
+position = Vector2(4.4, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_642ki")
+region_enabled = true
+region_rect = Rect2(0, 10.526, 31, 37.8543)
+
+[node name="Label" type="Label" parent="MENU_BELI/pickaxe_button/pickaxe"]
+offset_left = 25.8333
+offset_top = -9.16667
+offset_right = 65.8333
+offset_bottom = 13.8333
+text = "100"
+
+[node name="coin_counter2" type="Sprite2D" parent="MENU_BELI/pickaxe_button/pickaxe"]
+position = Vector2(65.8333, 3.33334)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_uj15h")
+
+[node name="sword_button" type="Button" parent="MENU_BELI"]
+layout_mode = 0
+offset_left = 35.25
+offset_top = 18.75
+offset_right = 43.25
+offset_bottom = 26.75
+
+[node name="sword" type="Sprite2D" parent="MENU_BELI/sword_button"]
+position = Vector2(4, 4)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_mnf1g")
+hframes = 3
+vframes = 3
+frame = 5
+region_rect = Rect2(0, 10.526, 31, 37.8543)
+
+[node name="Label" type="Label" parent="MENU_BELI/sword_button/sword"]
+offset_left = 18.0
+offset_top = -6.16666
+offset_right = 58.0
+offset_bottom = 16.8333
+scale = Vector2(0.7, 0.7)
+text = "150"
+
+[node name="coin_counter2" type="Sprite2D" parent="MENU_BELI/sword_button/sword"]
+position = Vector2(44, 2.66667)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_uj15h")
+
 [node name="coin_counter" type="Sprite2D" parent="."]
 position = Vector2(167, 196)
 scale = Vector2(3, 3)
@@ -157,64 +213,9 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("7_0mdrh")
 texture_hover = ExtResource("8_7yyaa")
 
-[node name="pickaxe_button" type="Button" parent="."]
-offset_left = 143.0
-offset_top = 64.0
-offset_right = 151.0
-offset_bottom = 72.0
-scale = Vector2(5, 5)
-
-[node name="pickaxe" type="Sprite2D" parent="pickaxe_button"]
-position = Vector2(4.4, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_642ki")
-region_enabled = true
-region_rect = Rect2(0, 10.526, 31, 37.8543)
-
-[node name="Label" type="Label" parent="pickaxe_button/pickaxe"]
-offset_left = 25.8333
-offset_top = -9.16667
-offset_right = 65.8333
-offset_bottom = 13.8333
-text = "100"
-
-[node name="coin_counter2" type="Sprite2D" parent="pickaxe_button/pickaxe"]
-position = Vector2(65.8333, 3.33334)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_uj15h")
-
-[node name="sword_button" type="Button" parent="."]
-offset_left = 144.0
-offset_top = 119.0
-offset_right = 152.0
-offset_bottom = 127.0
-scale = Vector2(5, 5)
-
-[node name="sword" type="Sprite2D" parent="sword_button"]
-position = Vector2(4, 4)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_mnf1g")
-hframes = 3
-vframes = 3
-frame = 5
-region_rect = Rect2(0, 10.526, 31, 37.8543)
-
-[node name="Label" type="Label" parent="sword_button/sword"]
-offset_left = 18.0
-offset_top = -8.66666
-offset_right = 58.0
-offset_bottom = 14.3333
-scale = Vector2(0.7, 0.7)
-text = "150"
-
-[node name="coin_counter2" type="Sprite2D" parent="sword_button/sword"]
-position = Vector2(44, -0.666667)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_uj15h")
-
 [connection signal="pressed" from="MENU_AWAL/HBoxContainer/button_beli" to="." method="_on_button_beli_pressed"]
 [connection signal="pressed" from="MENU_AWAL/HBoxContainer/button_jual" to="." method="_on_button_jual_pressed"]
 [connection signal="pressed" from="MENU_JUAL/jual_kayu_button" to="." method="_on_jual_kayu_button_pressed"]
+[connection signal="pressed" from="MENU_BELI/pickaxe_button" to="." method="_on_pickaxe_button_pressed"]
+[connection signal="pressed" from="MENU_BELI/sword_button" to="." method="_on_sword_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="pickaxe_button" to="." method="_on_pickaxe_button_pressed"]
-[connection signal="pressed" from="sword_button" to="." method="_on_sword_button_pressed"]
