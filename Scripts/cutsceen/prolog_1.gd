@@ -35,7 +35,8 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_file('res://Sceens/world/island.tscn')
 		GLobal_script.current_quest = 'prolog3'
 	elif anim_name == 'prolog_3':
-		get_tree().change_scene_to_file("res://Sceens/world/village.tscn")
+		GLobal_script.current_quest = "chap1_1"
+		get_tree().change_scene_to_file("res://Sceens/cutsceen/village_sceen.tscn")
 
 
 

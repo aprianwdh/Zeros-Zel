@@ -47,6 +47,8 @@ func save_position_player(positionx,positiony):
 
 # Fungsi untuk proses tiap frame
 func _process(_delta):
+	if have_sword == true:
+		current_quest = "chap1_6"
 	if current_sceen == 'world' and current_music != 'main':
 		AudioManager.stop_cave()
 		AudioManager.play_main()

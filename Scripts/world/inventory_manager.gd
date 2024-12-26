@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var inventory_gui = $inventory_gui
 @onready var pause_menu = $pause_menu
+@onready var map = $map
 
 func _ready():
 	inventory_gui.close()
@@ -20,3 +21,9 @@ func _input(event):
 			pause_menu.close()
 		else :
 			pause_menu.open()
+			
+	if event.is_action_pressed("map"):
+		if map.isOpen:
+			map.close()
+		else :
+			map.open()

@@ -8,7 +8,8 @@ func _ready():
 		cutsceen.play("chap1_1_panti")
 	elif GLobal_script.current_quest == 'chap1_2':
 		cutsceen.play("chap1_2_panti")
-	
+	elif GLobal_script.current_quest == 'chap1_4':
+		cutsceen.play("chap1_4_panti")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,4 +23,7 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_file("res://Sceens/world/panti_asuhan_sceen.tscn")
 	elif anim_name == 'chap1_2_panti':
 		GLobal_script.current_quest = 'chap1_3'
+		get_tree().change_scene_to_file("res://Sceens/world/panti_asuhan_sceen.tscn")
+	elif anim_name == 'chap1_4_panti':
+		GLobal_script.current_quest = 'chap1_5'
 		get_tree().change_scene_to_file("res://Sceens/world/panti_asuhan_sceen.tscn")

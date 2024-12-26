@@ -1,8 +1,10 @@
 extends Node2D
 
-
+var text_buble = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if text_buble :
+		$buble_chat.queue_free()
 	print(GLobal_script.current_quest)
 	if GLobal_script.current_quest == 'prolog3':
 		$cutsceen.play("chapter_1_1")
@@ -77,3 +79,4 @@ func _on_pause_menu_opened_pause_menu():
 func _on_cutsceen_animation_finished(anim_name):
 	if anim_name == "chapter_1_1":
 		GLobal_script.current_quest = 'chap1_1'
+		text_buble = true
