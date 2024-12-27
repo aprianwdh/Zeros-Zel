@@ -24,6 +24,7 @@ func _on_area_entered(area):
 		Attacked()
 		
 		if health <= 0:
+			GLobal_script.gain_exp(5)
 			$AnimatedSprite2D.play("dead")
 			await $AnimatedSprite2D.animation_finished
 			$StaticBody2D/CollisionShape2D.disabled = true

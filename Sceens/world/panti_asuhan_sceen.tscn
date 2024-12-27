@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rfjxcxgx6tmq"]
+[gd_scene load_steps=18 format=3 uid="uid://rfjxcxgx6tmq"]
 
 [ext_resource type="Texture2D" uid="uid://brgv8hglxcxw3" path="res://Assets/world/atlas_16x.png" id="1_cbbu5"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan_sceen.gd" id="1_is2p3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/world/inventory_manager.gd" id="9_jm7d3"]
 [ext_resource type="PackedScene" uid="uid://bep68jiujbwhx" path="res://Sceens/world/inventory_gui.tscn" id="10_d6f4l"]
 [ext_resource type="PackedScene" uid="uid://de0rhj43vs5sr" path="res://Sceens/world/pause_menu.tscn" id="11_gyolv"]
+[ext_resource type="PackedScene" uid="uid://m53ucyf6n40e" path="res://Sceens/UI/map.tscn" id="12_kjss3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqoeb"]
 texture = ExtResource("1_cbbu5")
@@ -2314,7 +2315,8 @@ vframes = 7
 frame = 1
 
 [node name="panti_sceen" type="Area2D" parent="."]
-position = Vector2(242, 106)
+visible = false
+position = Vector2(403, 39)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="panti_sceen"]
 shape = SubResource("RectangleShape2D_17ct4")
@@ -2353,6 +2355,7 @@ text = "GAME SAVED"
 
 [node name="inventory_manager" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("9_jm7d3")
 
 [node name="inventory_gui" parent="inventory_manager" instance=ExtResource("10_d6f4l")]
@@ -2367,6 +2370,9 @@ offset_right = 62.5
 offset_bottom = 43.0
 
 [node name="pause_menu" parent="inventory_manager" instance=ExtResource("11_gyolv")]
+
+[node name="map" parent="inventory_manager" instance=ExtResource("12_kjss3")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

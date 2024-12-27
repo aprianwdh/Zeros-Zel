@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://d3efojoi62okn"]
+[gd_scene load_steps=68 format=3 uid="uid://d3efojoi62okn"]
 
 [ext_resource type="Script" path="res://Scripts/cutsceen/village_sceen.gd" id="1_pyoii"]
 [ext_resource type="Texture2D" uid="uid://cbaoflq0biqfd" path="res://Assets/fantasy_ [version 2.0]/forest_/forest_.png" id="2_lpsrh"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="24_ak6yy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="24_h011c"]
 [ext_resource type="Texture2D" uid="uid://dx2wkqri7h4vm" path="res://Assets/UI/buble_chat/Chat-1.png" id="25_oo5n6"]
+[ext_resource type="Texture2D" uid="uid://cystq4g7doh1e" path="res://Assets/npc/NPC_Characters_v1.0/Male3.png" id="26_j3lbq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jc80"]
 texture = ExtResource("2_lpsrh")
@@ -6144,6 +6145,30 @@ region = Rect2(128, 64, 32, 32)
 atlas = ExtResource("24_h011c")
 region = Rect2(160, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cwx7"]
+atlas = ExtResource("24_h011c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1toq8"]
+atlas = ExtResource("24_h011c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i7iv"]
+atlas = ExtResource("24_h011c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062c4"]
+atlas = ExtResource("24_h011c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecsx2"]
+atlas = ExtResource("24_h011c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_web2c"]
+atlas = ExtResource("24_h011c")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d31sh"]
 animations = [{
 "frames": [{
@@ -6166,9 +6191,267 @@ animations = [{
 "texture": SubResource("AtlasTexture_g44vj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"atas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cwx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1toq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i7iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_062c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecsx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_web2c")
+}],
+"loop": true,
+"name": &"bawah",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_q1jm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Object/ShipFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-447, 410)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Object/player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 470)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bublechat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bublechat/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Akhirnya sampai well"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bublechat/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Object/player:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bawah"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Object/player:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("bublechat:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(349, -19)]
+}
+
+[sub_resource type="Animation" id="Animation_iknp3"]
+resource_name = "belum_boleh_ke_forest"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Object/player:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bawah"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Object/player:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 4, 5, 0, 1, 2, 3, 3, 4, 5, 0, 1, 2, 3, 3, 4, 5, 0, 1, 2, 3, 3, 4, 5, 0, 1, 2, 3, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bublechat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.8, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bublechat:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(349, -19)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bublechat/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Sepertinya belum waktunya aku ke sini", "Aku harus mancapai lv 2 dan memiliki pedang"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("bublechat/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 1.6, 2.6, 3.1, 3.6, 4.6, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.3, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.8, 1.6, 2.6, 3.6, 4.6, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Object/player:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 374)]
+}
 
 [sub_resource type="Animation" id="Animation_0ogjk"]
 resource_name = "chap1_1"
@@ -6257,99 +6540,61 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false, true, false, true, false, true, false]
 }
-
-[sub_resource type="Animation" id="Animation_q1jm4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Object/ShipFull:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("bublechat:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.7),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-447, 410)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Object/player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, 470)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("bublechat:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("bublechat/RichTextLabel:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Akhirnya sampai well"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("bublechat/RichTextLabel:visible_ratio")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [Vector2(-1, -3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vock3"]
 _data = {
 "RESET": SubResource("Animation_q1jm4"),
+"belum_boleh_ke_forest": SubResource("Animation_iknp3"),
 "chap1_1": SubResource("Animation_0ogjk")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bldqg"]
+atlas = ExtResource("26_j3lbq")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee2ub"]
+atlas = ExtResource("26_j3lbq")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ca2g"]
+atlas = ExtResource("26_j3lbq")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5xa5"]
+atlas = ExtResource("26_j3lbq")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uleek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bldqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee2ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ca2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5xa5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="village_sceen" type="Node2D"]
 script = ExtResource("1_pyoii")
@@ -6404,12 +6649,13 @@ volume_db = 24.0
 [node name="ShipFull" type="Sprite2D" parent="Object"]
 position = Vector2(-447, 410)
 rotation = 0.0120723
-scale = Vector2(1, 1)
 texture = ExtResource("24_ak6yy")
 
 [node name="player" type="AnimatedSprite2D" parent="Object"]
 position = Vector2(-16, 470)
 sprite_frames = SubResource("SpriteFrames_d31sh")
+animation = &"bawah"
+autoplay = "atas"
 
 [node name="Camera2D" type="Camera2D" parent="Object/player"]
 zoom = Vector2(1.5, 1.5)
@@ -6421,6 +6667,7 @@ libraries = {
 
 [node name="bublechat" type="Node2D" parent="."]
 visible = false
+position = Vector2(349, -19)
 
 [node name="Sprite2D" type="Sprite2D" parent="bublechat"]
 position = Vector2(-33, 371)
@@ -6449,6 +6696,17 @@ fit_content = true
 scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="forest_guard3" type="AnimatedSprite2D" parent="."]
+position = Vector2(374, 400)
+sprite_frames = SubResource("SpriteFrames_uleek")
+autoplay = "default"
+
+[node name="forest_guard4" type="AnimatedSprite2D" parent="."]
+position = Vector2(297, 401)
+sprite_frames = SubResource("SpriteFrames_uleek")
+autoplay = "default"
+flip_h = true
 
 [connection signal="animation_finished" from="cutsceen" to="." method="_on_cutsceen_animation_finished"]
 [connection signal="animation_libraries_updated" from="cutsceen" to="." method="_on_cutsceen_animation_libraries_updated"]

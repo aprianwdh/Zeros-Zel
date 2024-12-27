@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var chase_player = false
-const SPEED = 100
+const SPEED = 150
 var player
 var health = 100
 var death = false
@@ -58,7 +58,7 @@ func die():
 		await  animated_sprite_2d.animation_finished
 		$CollisionShape2D2.disabled = true
 		drop_item()
-		GLobal_script.gain_exp(10)
+		GLobal_script.gain_exp(15)
 		hide()
 		await get_tree().create_timer(waktu_respawn).timeout
 		respawn()

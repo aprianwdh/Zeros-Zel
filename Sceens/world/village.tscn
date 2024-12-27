@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgij7o7rysbcx"]
+[gd_scene load_steps=18 format=3 uid="uid://bgij7o7rysbcx"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_nvhfr"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan.gd" id="5_1f4by"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="6_7gejl"]
 [ext_resource type="PackedScene" uid="uid://byoqqyt3pg8iv" path="res://Sceens/world/transisi.tscn" id="6_102bn"]
 [ext_resource type="Script" path="res://Scripts/world/City_enterance.gd" id="7_74es3"]
+[ext_resource type="Texture2D" uid="uid://cystq4g7doh1e" path="res://Assets/npc/NPC_Characters_v1.0/Male3.png" id="7_voyla"]
+[ext_resource type="Script" path="res://Scripts/world/forest_enterance.gd" id="8_t4q7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61y5v"]
 size = Vector2(20, 3)
@@ -14,7 +16,46 @@ size = Vector2(20, 3)
 size = Vector2(40, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd5bf"]
-size = Vector2(39, 20)
+size = Vector2(39, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bldqg"]
+atlas = ExtResource("7_voyla")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee2ub"]
+atlas = ExtResource("7_voyla")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ca2g"]
+atlas = ExtResource("7_voyla")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5xa5"]
+atlas = ExtResource("7_voyla")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkgtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bldqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee2ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ca2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5xa5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yovf7"]
+size = Vector2(38, 20)
 
 [node name="village" instance=ExtResource("1_nvhfr")]
 
@@ -50,9 +91,10 @@ position = Vector2(145, 208)
 position = Vector2(277, 247)
 
 [node name="Player" parent="TileMap" index="1"]
-position = Vector2(0, 370)
+position = Vector2(-1, 380)
 
-[node name="Camera2D" parent="TileMap/Player" index="12"]
+[node name="Camera2D" parent="TileMap/Player" index="13"]
+zoom = Vector2(1.2, 1.2)
 limit_left = -600
 limit_top = -250
 limit_right = 800
@@ -90,7 +132,48 @@ position = Vector2(-11, 403)
 position = Vector2(9.5, 0)
 shape = SubResource("RectangleShape2D_bd5bf")
 
+[node name="Border_world2" type="StaticBody2D" parent="." index="11"]
+position = Vector2(289, 401)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_world2" index="0"]
+shape = SubResource("RectangleShape2D_bd5bf")
+
+[node name="Border_world3" type="StaticBody2D" parent="." index="12"]
+position = Vector2(382, 401)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_world3" index="0"]
+shape = SubResource("RectangleShape2D_bd5bf")
+
+[node name="forest_guard" type="AnimatedSprite2D" parent="." index="13"]
+position = Vector2(374, 400)
+sprite_frames = SubResource("SpriteFrames_vkgtm")
+autoplay = "default"
+frame_progress = 0.320279
+
+[node name="forest_guard3" type="AnimatedSprite2D" parent="." index="14"]
+position = Vector2(374, 400)
+sprite_frames = SubResource("SpriteFrames_vkgtm")
+autoplay = "default"
+frame_progress = 0.320279
+
+[node name="forest_guard2" type="AnimatedSprite2D" parent="." index="15"]
+position = Vector2(297, 401)
+sprite_frames = SubResource("SpriteFrames_vkgtm")
+autoplay = "default"
+frame_progress = 0.320279
+flip_h = true
+
+[node name="forest_enterance" type="Area2D" parent="." index="16"]
+position = Vector2(331, 411)
+script = ExtResource("8_t4q7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forest_enterance" index="0"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_yovf7")
+
 [connection signal="body_entered" from="panti_asuhan" to="panti_asuhan" method="_on_body_entered"]
 [connection signal="body_exited" from="panti_asuhan" to="panti_asuhan" method="_on_body_exited"]
 [connection signal="body_entered" from="City_enterance" to="City_enterance" method="_on_body_entered"]
 [connection signal="body_exited" from="City_enterance" to="City_enterance" method="_on_body_exited"]
+[connection signal="body_entered" from="forest_enterance" to="forest_enterance" method="_on_body_entered"]
+[connection signal="body_exited" from="forest_enterance" to="forest_enterance" method="_on_body_exited"]

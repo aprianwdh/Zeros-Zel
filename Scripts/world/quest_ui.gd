@@ -23,7 +23,7 @@ func _process(delta):
 	elif GLobal_script.current_quest == 'chap1_4':
 		quest_label.text = 'Juallah kayu ke toko senjata dan kembalilah ke Panti Asuhan'
 	elif GLobal_script.current_quest == 'chap1_5':
-		quest_label.text = 'Beli Pedang di toko senjata dan mulailah membunuh monster di hutan'
+		quest_label.text = 'Beli Pedang di toko senjata dan capai level 2'
 	elif GLobal_script.current_quest == 'chap1_6':
 		quest_label.text = 'Pergilah ke Hutan di sebelah selatan (arah bawah map)'
 
