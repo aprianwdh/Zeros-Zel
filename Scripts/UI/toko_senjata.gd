@@ -6,7 +6,7 @@ extends CanvasLayer
 signal quit_toko_senjata
 @onready var label_coin = $Label_coin
 @onready var kayu_player = $MENU_JUAL/kayu/kayu_player
-var harga_kayu = 5
+var harga_kayu = 10
 @onready var sword = $MENU_BELI/sword_button
 @onready var pickaxe = $MENU_BELI/pickaxe_button
 @onready var pickaxe_button = $MENU_BELI/pickaxe_button

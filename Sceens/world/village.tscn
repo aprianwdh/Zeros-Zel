@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgij7o7rysbcx"]
+[gd_scene load_steps=19 format=3 uid="uid://bgij7o7rysbcx"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_nvhfr"]
 [ext_resource type="Script" path="res://Scripts/world/panti_asuhan.gd" id="5_1f4by"]
 [ext_resource type="PackedScene" uid="uid://cwp7kl1qmgs4a" path="res://Sceens/world/tree.tscn" id="5_c6aha"]
 [ext_resource type="Texture2D" uid="uid://crj28lej60qh" path="res://Assets/kapal/Ship_full.png" id="6_7gejl"]
 [ext_resource type="PackedScene" uid="uid://byoqqyt3pg8iv" path="res://Sceens/world/transisi.tscn" id="6_102bn"]
+[ext_resource type="Script" path="res://Scripts/world/forest_border.gd" id="7_4wctk"]
 [ext_resource type="Script" path="res://Scripts/world/City_enterance.gd" id="7_74es3"]
 [ext_resource type="Texture2D" uid="uid://cystq4g7doh1e" path="res://Assets/npc/NPC_Characters_v1.0/Male3.png" id="7_voyla"]
 [ext_resource type="Script" path="res://Scripts/world/forest_enterance.gd" id="8_t4q7h"]
@@ -144,27 +145,34 @@ position = Vector2(382, 401)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_world3" index="0"]
 shape = SubResource("RectangleShape2D_bd5bf")
 
-[node name="forest_guard" type="AnimatedSprite2D" parent="." index="13"]
+[node name="Border_world4" type="StaticBody2D" parent="." index="13"]
+position = Vector2(334, 402)
+script = ExtResource("7_4wctk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_world4" index="0"]
+shape = SubResource("RectangleShape2D_bd5bf")
+
+[node name="forest_guard" type="AnimatedSprite2D" parent="." index="14"]
 position = Vector2(374, 400)
 sprite_frames = SubResource("SpriteFrames_vkgtm")
 autoplay = "default"
 frame_progress = 0.320279
 
-[node name="forest_guard3" type="AnimatedSprite2D" parent="." index="14"]
+[node name="forest_guard3" type="AnimatedSprite2D" parent="." index="15"]
 position = Vector2(374, 400)
 sprite_frames = SubResource("SpriteFrames_vkgtm")
 autoplay = "default"
 frame_progress = 0.320279
 
-[node name="forest_guard2" type="AnimatedSprite2D" parent="." index="15"]
+[node name="forest_guard2" type="AnimatedSprite2D" parent="." index="16"]
 position = Vector2(297, 401)
 sprite_frames = SubResource("SpriteFrames_vkgtm")
 autoplay = "default"
 frame_progress = 0.320279
 flip_h = true
 
-[node name="forest_enterance" type="Area2D" parent="." index="16"]
-position = Vector2(331, 411)
+[node name="forest_enterance" type="Area2D" parent="." index="17"]
+position = Vector2(331, 422)
 script = ExtResource("8_t4q7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="forest_enterance" index="0"]

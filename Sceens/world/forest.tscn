@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwg2ofr4x2yk2"]
+[gd_scene load_steps=7 format=3 uid="uid://bwg2ofr4x2yk2"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_doqrs"]
 [ext_resource type="PackedScene" uid="uid://dsw21t6tqbgig" path="res://Sceens/Enemy/slime.tscn" id="2_do3om"]
+[ext_resource type="Texture2D" uid="uid://dd2do372akkjl" path="res://Assets/npc/Generic Male NPCs.png" id="3_mrxhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d75jr"]
+atlas = ExtResource("3_mrxhw")
+region = Rect2(800, 120, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sblpu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d75jr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpie3"]
+size = Vector2(40, 95)
 
 [node name="forest" instance=ExtResource("1_doqrs")]
 
@@ -11,7 +30,7 @@ layer_1/tile_data = PackedInt32Array(15, 131072, 3, 65551, 131072, 3, 131087, 13
 layer_2/tile_data = PackedInt32Array(1900551, 9, 0, 2424839, 9, 0, 2818076, 9, 0, 1572901, 9, 0, 1179678, 9, 0, 786452, 9, 0, 327703, 9, 0, 393234, 8, 3, 655376, 8, 3, 655387, 8, 3, 589852, 8, 3, 1376290, 8, 3, 1835040, 8, 3, 1835039, 8, 3, 1769496, 8, 3, 1638414, 8, 3, 1769480, 8, 3, 1966082, 8, 3, 2621443, 8, 3, 3014659, 8, 3, 3145739, 8, 3, 3014671, 8, 3, 3211296, 8, 3, 2752551, 8, 3, 2752558, 8, 3, 3211305, 8, 3, 3473449, 8, 3, 3342384, 8, 3, 3211289, 8, 7, 3080213, 8, 7, 1769488, 8, 7, 983074, 8, 7, 589844, 8, 7)
 
 [node name="Player" parent="TileMap" index="0"]
-position = Vector2(268, 65)
+position = Vector2(276, 10)
 
 [node name="Camera2D" parent="TileMap/Player" index="13"]
 zoom = Vector2(1.2, 1.2)
@@ -56,3 +75,15 @@ position = Vector2(469, 770)
 
 [node name="slime11" parent="enemy" index="10" instance=ExtResource("2_do3om")]
 position = Vector2(556, 769)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="7"]
+visible = false
+position = Vector2(305, 38)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_sblpu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D" index="0"]
+position = Vector2(0, 7.49999)
+shape = SubResource("RectangleShape2D_mpie3")
