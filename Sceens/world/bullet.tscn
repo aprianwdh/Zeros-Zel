@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://doqyfkn1phipl"]
+
+[ext_resource type="Script" path="res://Scripts/Boss/bullet.gd" id="1_b26yw"]
+[ext_resource type="Texture2D" uid="uid://bon8hvfcx2cid" path="res://Assets/Enemy/ghost.png" id="1_cbb7r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qeuf"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gkpb"]
+radius = 4.0
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_b26yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cbb7r")
+hframes = 6
+vframes = 4
+frame = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4qeuf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Hit_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_area"]
+shape = SubResource("CircleShape2D_2gkpb")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Hit_area" to="." method="_on_hit_area_body_entered"]

@@ -52,6 +52,9 @@ position = Vector2(204, 193)
 [node name="npc_static_male2" parent="TileMap/npc_move" index="4" instance=ExtResource("3_1yten")]
 position = Vector2(420, 85)
 
+[node name="UI_manager" parent="." index="2"]
+visible = false
+
 [node name="time_cycle" parent="." index="4"]
 visible = false
 
