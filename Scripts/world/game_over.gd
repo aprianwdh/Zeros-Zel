@@ -3,7 +3,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GLobal_script.restart_game = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,7 +13,8 @@ func _process(delta):
 
 func _on_restart_pressed():
 	GLobal_script.restart_game = true
-	get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')
+	GLobal_script.load()
+	get_tree().change_scene_to_file("res://Sceens/world/forest.tscn")
 
 
 func _on_quit_pressed():

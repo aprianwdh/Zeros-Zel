@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var chase_player = false
-const SPEED = 150
+const SPEED = 250
 var player
 var health = 100
 var death = false
@@ -61,7 +61,7 @@ func die():
 		GLobal_script.gain_exp(15)
 		hide()
 		await get_tree().create_timer(waktu_respawn).timeout
-		respawn()
+		queue_free()
 		
 func respawn():
 	global_position = last_position  # Kembalikan ke posisi awal

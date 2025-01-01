@@ -51,12 +51,28 @@ func _process(_delta):
 		current_quest = "chap1_6"
 	if current_sceen == 'world' and current_music != 'main':
 		AudioManager.stop_cave()
+		AudioManager.stop_boss()
 		AudioManager.play_main()
+		AudioManager.stop_end()
 		current_music = 'main'
-	elif (current_sceen == 'cave' or current_sceen == 'cave2') and current_music != 'cave':
+	elif current_sceen == 'forest' and current_music != 'forest':
 		AudioManager.stop_main()
+		AudioManager.stop_boss()
 		AudioManager.play_cave()
-		current_music = 'cave'
+		AudioManager.stop_end()
+		current_music = 'forest'
+	elif (current_sceen == 'boss' or current_sceen == 'boss') and current_music != 'boss':
+		AudioManager.stop_main()
+		AudioManager.stop_cave()
+		AudioManager.play_boss()
+		AudioManager.stop_end()
+		current_music = 'boss'
+	elif (current_sceen == 'end' or current_sceen == 'end') and current_music != 'end':
+		AudioManager.stop_main()
+		AudioManager.stop_cave()
+		AudioManager.stop_boss()
+		AudioManager.play_end()
+		current_music = 'end'
 
 
 # Fungsi untuk menambah item ke inventory

@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	if GLobal_script.current_quest == 'chap1_6':
 		cutsceen.play("chap1_6")
+	GLobal_script.current_sceen = "forest"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,5 +15,5 @@ func _process(delta):
 
 func _on_cutsceen_animation_finished(anim_name):
 	if anim_name == 'chap1_6':
-		GLobal_script.current_quest = "chap_bos"
+		GLobal_script.current_quest = "chap_boss"
 		get_tree().change_scene_to_file("res://Sceens/world/forest.tscn")

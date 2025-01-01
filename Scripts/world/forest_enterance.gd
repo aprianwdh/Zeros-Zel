@@ -29,7 +29,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		GLobal_script.current_sceen = 'forest'
 		GLobal_script.transisi_sceen = true
-		GLobal_script.save_position_player(339,373)
+		GLobal_script.save_position_player(335,386)
 		call_deferred("change_Sceen")
 
 

@@ -42,3 +42,10 @@ func _on_cutsceen_animation_finished(anim_name):
 	if anim_name == "chapter_1_1":
 		GLobal_script.current_quest = 'chap1_1'
 		text_buble = true
+
+
+func _on_boss_jawir_boss_kalah():
+	print("Boss Kalah")
+	$fade_transisi.play("fade_in")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Sceens/world/credit_sceen.tscn")

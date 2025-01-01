@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btnh1lp8gjd0y"
+path="res://.godot/imported/Action 1 Loop.ogg-a4340dfc5f1f6f3fcce75bd46c9c5bba.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Action 1 Loop.ogg"
+dest_files=["res://.godot/imported/Action 1 Loop.ogg-a4340dfc5f1f6f3fcce75bd46c9c5bba.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

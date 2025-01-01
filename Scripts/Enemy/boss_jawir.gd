@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player = $"../TileMap/Player"
 @onready var progress_bar = $ProgressBar
 @onready var boss_jawir = $"."
+signal Boss_Kalah
 
 var health: = 100:
 	set(value):
@@ -49,4 +50,7 @@ func die():
 	tween.finished.connect(_on_tween_finished)
 
 func _on_tween_finished():
-	queue_free()  # Hapus node setelah fade selesai
+	queue_free() 
+	#await get_tree().create_timer(1).timeout
+	emit_signal("Boss_Kalah")
+	 # Hapus node setelah fade selesai

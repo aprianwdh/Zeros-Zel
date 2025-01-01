@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://6jawmkxjamna"]
+[gd_scene load_steps=103 format=3 uid="uid://6jawmkxjamna"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_4llxy"]
 [ext_resource type="Texture2D" uid="uid://cg2bbmlvvg4iw" path="res://Assets/Player/Player.png" id="2_kjqlf"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bdcq8pndx8udk" path="res://Assets/Player/stamina_bar.png" id="10_78op4"]
 [ext_resource type="Texture2D" uid="uid://3nuq7dggs1ye" path="res://Assets/Player/stamina_bar_under.png" id="10_548h1"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="12_d4svl"]
+[ext_resource type="Texture2D" uid="uid://b6yaweng2krwk" path="res://Assets/UI/mobile/5.png" id="13_q2gcl"]
+[ext_resource type="Texture2D" uid="uid://c65v6yt8p7ytj" path="res://Assets/UI/mobile/6.png" id="14_2jx7h"]
+[ext_resource type="Texture2D" uid="uid://bea4vahg1l22g" path="res://Assets/UI/mobile/8.png" id="15_umurq"]
+[ext_resource type="Texture2D" uid="uid://ced6go5q30c33" path="res://Assets/UI/Icons/Regular_02.png" id="16_iqi4t"]
+[ext_resource type="Texture2D" uid="uid://b6lvdb8ss545r" path="res://Assets/UI/backpack.png" id="17_e1y2j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3lf"]
 atlas = ExtResource("2_kjqlf")
@@ -1529,20 +1534,52 @@ texture_under = ExtResource("10_548h1")
 texture_progress = ExtResource("10_78op4")
 
 [node name="android_controler" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Virtual Joystick" parent="android_controler" instance=ExtResource("12_d4svl")]
-offset_left = 36.0
-offset_top = -110.0
-offset_right = 336.0
-offset_bottom = 190.0
-scale = Vector2(0.3, 0.3)
+modulate = Color(1, 1, 1, 0.470588)
+offset_left = 38.0
+offset_top = -84.0
+offset_right = 338.0
+offset_bottom = 216.0
+scale = Vector2(0.2, 0.2)
 pressed_color = Color(0.495173, 0.618253, 0.9815, 1)
 clampzone_size = 20.0
 action_left = "left"
 action_right = "right"
 action_up = "up"
 action_down = "down"
+
+[node name="attack" type="TouchScreenButton" parent="android_controler"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(332, 175)
+texture_normal = ExtResource("13_q2gcl")
+action = "attack"
+
+[node name="dash" type="TouchScreenButton" parent="android_controler"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(331, 128)
+texture_normal = ExtResource("14_2jx7h")
+action = "dash"
+
+[node name="interact" type="TouchScreenButton" parent="android_controler"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(278, 175)
+texture_normal = ExtResource("15_umurq")
+action = "interact"
+
+[node name="pause" type="TouchScreenButton" parent="android_controler"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(394, 2)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("16_iqi4t")
+action = "pause"
+
+[node name="backpapck" type="TouchScreenButton" parent="android_controler"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(362, 1)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("17_e1y2j")
+action = "open_inventory"
 
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

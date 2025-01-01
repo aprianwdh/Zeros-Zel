@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://iv111st4syor"]
+[gd_scene load_steps=8 format=3 uid="uid://iv111st4syor"]
 
 [ext_resource type="Script" path="res://Scripts/core/audio_manager.gd" id="1_3sj1t"]
 [ext_resource type="AudioStream" uid="uid://blujfqxo30km1" path="res://Assets/sfx/mainSound.wav" id="1_sa0jy"]
 [ext_resource type="AudioStream" uid="uid://c4x5qiirvjngp" path="res://Assets/sfx/darkAmbient.mp3" id="3_ipcu0"]
 [ext_resource type="AudioStream" uid="uid://cif6dey8elc7n" path="res://Assets/sfx/sword-sound-effect.mp3" id="4_k4oxw"]
+[ext_resource type="AudioStream" uid="uid://btnh1lp8gjd0y" path="res://Assets/sfx/Action 1 Loop.ogg" id="4_vyoek"]
+[ext_resource type="AudioStream" uid="uid://fw7udbjmlxpv" path="res://Assets/sfx/end_credit_revisi.wav" id="6_glm1o"]
+[ext_resource type="AudioStream" uid="uid://b3dncieh1frqg" path="res://Assets/sfx/Ambient 7 Loop.wav" id="7_frnet"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
@@ -11,14 +14,29 @@ script = ExtResource("1_3sj1t")
 
 [node name="mainSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_sa0jy")
-volume_db = 15.0
+volume_db = 20.0
 
 [node name="caveSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("3_ipcu0")
-volume_db = 16.0
+volume_db = 20.0
+
+[node name="BossSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("4_vyoek")
+volume_db = 20.0
 
 [node name="sword" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("4_k4oxw")
-volume_db = 16.0
+volume_db = 24.0
+
+[node name="end" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("6_glm1o")
+volume_db = 24.0
+
+[node name="panti" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("7_frnet")
+volume_db = 24.0

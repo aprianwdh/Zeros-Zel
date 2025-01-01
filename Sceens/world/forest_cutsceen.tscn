@@ -6323,7 +6323,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_y787d"]
 resource_name = "chap1_6"
-length = 60.0
+length = 57.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

@@ -7,7 +7,7 @@ class_name ShootState
 
 func transition():
 	if not ray_cast.is_colliding():
-		var new_state = "Follow" if owner.health <= 50 else "Dash"
+		var new_state = "Follow" if owner.health >= 50 else "Dash"
 		get_parent().change_state(new_state)
 
 func enter():

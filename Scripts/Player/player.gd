@@ -148,8 +148,10 @@ func update_icon_interact():
 	if GLobal_script.interact != '':
 		icon_interact.show()
 		icon_interact.play("default")
+		$android_controler/interact.show()
 	else :
 		icon_interact.hide()
+		$android_controler/interact.hide()
 		
 func dash():
 	if Input.is_action_just_pressed("dash") and GLobal_script.stamina >= 50:

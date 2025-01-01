@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bep68jiujbwhx"]
+[gd_scene load_steps=6 format=3 uid="uid://bep68jiujbwhx"]
 
 [ext_resource type="Texture2D" uid="uid://drvkbai7im02f" path="res://Assets/world/InventoryRect.png" id="1_21koy"]
 [ext_resource type="Script" path="res://Scripts/world/inventory_gui.gd" id="1_42cy2"]
 [ext_resource type="PackedScene" uid="uid://b5wpn22bbk1bp" path="res://Sceens/world/slot_gui.tscn" id="2_cxddq"]
 [ext_resource type="Texture2D" uid="uid://by4goq2bgef44" path="res://Assets/collectable/W_Idle.png" id="4_owf0k"]
+[ext_resource type="Texture2D" uid="uid://ef7g7wx1ro6m" path="res://Assets/UI/Icons/Disable_01.png" id="5_6t0uw"]
 
 [node name="inventory_gui" type="Control"]
 custom_minimum_size = Vector2(125, 86)
@@ -58,3 +59,9 @@ offset_right = 41.5
 offset_bottom = 35.0
 scale = Vector2(0.3, 0.3)
 horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(96, -2)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_6t0uw")
+action = "open_inventory"

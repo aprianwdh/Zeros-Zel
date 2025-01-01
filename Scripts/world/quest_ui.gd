@@ -26,6 +26,8 @@ func _process(delta):
 		quest_label.text = 'Beli Pedang di toko senjata dan capai level 2'
 	elif GLobal_script.current_quest == 'chap1_6':
 		quest_label.text = 'Pergilah ke Hutan di sebelah selatan (arah bawah map)'
+	elif GLobal_script.current_quest == 'chap_boss':
+		quest_label.text = 'Kalahkan Monster Jawir di Ujung Forest ini'
 
 
 func _on_texture_button_pressed():

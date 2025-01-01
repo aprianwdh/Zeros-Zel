@@ -83,3 +83,4 @@ position = Vector2(663, 436)
 [connection signal="body_exited" from="cave1" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="cave2" to="." method="_on_cave_2_body_entered"]
 [connection signal="body_exited" from="cave2" to="." method="_on_cave_2_body_exited"]
+[connection signal="Boss_Kalah" from="BOSS_JAWIR" to="." method="_on_boss_jawir_boss_kalah"]

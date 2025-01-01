@@ -15,4 +15,18 @@ func stop_cave():
 func sword_play():
 	$sword.play()
 	
+func play_boss():
+	$BossSound.play()
+	
+func stop_boss():
+	$BossSound.stop()
+	
+func play_end():
+	$end.play()
+	
+func stop_end():
+	$end.stop()
+	
+
+	
 
