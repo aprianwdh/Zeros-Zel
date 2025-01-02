@@ -30,10 +30,7 @@ func _on_quit_pressed():
 
 func _on_countinue_pressed():
 	GLobal_script.load()
-	get_tree().change_scene_to_file("res://Sceens/world/forest.tscn")
-	#if GLobal_script.current_sceen == 'world':
-		#get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')
-	#elif GLobal_script.current_music == 'cave':
-		#get_tree().change_scene_to_file('res://Sceens/world/cave_test.tscn')
-	#else:
-		#get_tree().change_scene_to_file('res://Sceens/world/test_level.tscn')
+	if GLobal_script.current_quest == "chap1_6" or GLobal_script.current_quest == "chap_boss":
+		get_tree().change_scene_to_file('res://Sceens/world/forest.tscn')
+	else:
+		get_tree().change_scene_to_file('res://Sceens/world/panti_asuhan_sceen.tscn')

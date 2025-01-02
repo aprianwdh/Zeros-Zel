@@ -2,6 +2,7 @@ extends Control
 
 @onready var toko_senjata = $Toko_senjata
 @onready var toko_ui = $"."
+@onready var toko_ramuan = $Toko_ramuan
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,3 +20,11 @@ func _on_toko_senjata_toko_senjata_interact():
 
 func _on_toko_senjata_quit_toko_senjata():
 	toko_senjata.hide()
+
+
+func _on_toko_ramuan_toko_ramuan_interact():
+	toko_ramuan.show()
+
+
+func _on_toko_ramuan_quit_toko_senjata():
+	toko_ramuan.hide()

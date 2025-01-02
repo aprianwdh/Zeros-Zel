@@ -31,6 +31,7 @@ var current_quest = 'prolog1'
 var saving = false
 var interact = ''
 var stamina = 100
+var red_potion = 0
 
 
 func _ready():
@@ -139,7 +140,8 @@ func save():
 		"level_player": level_player,
 		"light_on": light_on,
 		"current_quest":current_quest,
-		"saving":saving
+		"saving":saving,
+		"red_potion":red_potion
 	}
 
 	# Simpan Dictionary ke file
@@ -185,6 +187,7 @@ func load():
 			light_on = load_data["light_on"]
 			current_quest = load_data["current_quest"]
 			saving = load_data["saving"]
+			red_potion = load_data["red_potion"]
 
 			print("Game loaded successfully!")
 		else:

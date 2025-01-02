@@ -1244,6 +1244,9 @@ visible = false
 stream = ExtResource("6_fp823")
 volume_db = 24.0
 
+[node name="inventory_manager" parent="." index="15"]
+visible = false
+
 [node name="ninja_depcolector" type="AnimatedSprite2D" parent="." index="16"]
 position = Vector2(155, 105)
 sprite_frames = SubResource("SpriteFrames_hss5e")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2sis8creoa4"]
+[gd_scene load_steps=14 format=3 uid="uid://b2sis8creoa4"]
 
 [ext_resource type="PackedScene" uid="uid://dy4go8kpmc6ki" path="res://Sceens/world/base_level.tscn" id="1_76ka0"]
 [ext_resource type="Script" path="res://Scripts/world/village_enterance.gd" id="2_teywy"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/Toko_UI_city.gd" id="6_5kqeq"]
 [ext_resource type="PackedScene" uid="uid://iwvql316ml8v" path="res://Sceens/UI/toko_senjata.tscn" id="6_gsbad"]
 [ext_resource type="PackedScene" uid="uid://bsmko86yrq4tx" path="res://Sceens/Npc/npc_male.tscn" id="8_6rd4c"]
+[ext_resource type="Script" path="res://Scripts/world/toko_ramuan.gd" id="8_jbvxm"]
+[ext_resource type="PackedScene" uid="uid://dvh7if2xf1iqb" path="res://Sceens/UI/toko_ramuan.tscn" id="11_0w1y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw52d"]
 
@@ -97,6 +99,7 @@ shape = SubResource("RectangleShape2D_8ohme")
 
 [node name="toko_ramuan" type="Area2D" parent="." index="11"]
 position = Vector2(358, 98)
+script = ExtResource("8_jbvxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toko_ramuan" index="0"]
 position = Vector2(2.5, -3.5)
@@ -112,9 +115,16 @@ script = ExtResource("6_5kqeq")
 [node name="Toko_senjata" parent="Toko_UI" index="0" instance=ExtResource("6_gsbad")]
 visible = false
 
+[node name="Toko_ramuan" parent="Toko_UI" index="1" instance=ExtResource("11_0w1y0")]
+visible = false
+
 [connection signal="body_entered" from="village_enterance" to="village_enterance" method="_on_body_entered"]
 [connection signal="body_exited" from="village_enterance" to="village_enterance" method="_on_body_exited"]
 [connection signal="body_entered" from="toko_senjata" to="toko_senjata" method="_on_body_entered"]
 [connection signal="body_exited" from="toko_senjata" to="toko_senjata" method="_on_body_exited"]
 [connection signal="toko_senjata_interact" from="toko_senjata" to="Toko_UI" method="_on_toko_senjata_toko_senjata_interact"]
+[connection signal="body_entered" from="toko_ramuan" to="toko_ramuan" method="_on_body_entered"]
+[connection signal="body_exited" from="toko_ramuan" to="toko_ramuan" method="_on_body_exited"]
+[connection signal="toko_ramuan_interact" from="toko_ramuan" to="Toko_UI" method="_on_toko_ramuan_toko_ramuan_interact"]
 [connection signal="quit_toko_senjata" from="Toko_UI/Toko_senjata" to="Toko_UI" method="_on_toko_senjata_quit_toko_senjata"]
+[connection signal="quit_toko_senjata" from="Toko_UI/Toko_ramuan" to="Toko_UI" method="_on_toko_ramuan_quit_toko_senjata"]

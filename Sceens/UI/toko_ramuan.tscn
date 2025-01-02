@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvh7if2xf1iqb"]
+
+[ext_resource type="PackedScene" uid="uid://iwvql316ml8v" path="res://Sceens/UI/toko_senjata.tscn" id="1_gxumo"]
+[ext_resource type="Script" path="res://Scripts/UI/toko_ramuan.gd" id="2_7qc5p"]
+[ext_resource type="Texture2D" uid="uid://by2fmyxy6e6gc" path="res://Assets/collectable/potion/01.png" id="2_u6oce"]
+
+[node name="Toko_ramuan" instance=ExtResource("1_gxumo")]
+script = ExtResource("2_7qc5p")
+
+[node name="MENU_AWAL" parent="." index="0"]
+visible = true
+
+[node name="button_jual" parent="MENU_AWAL/HBoxContainer" index="1"]
+visible = false
+
+[node name="MENU_BELI" parent="." index="2"]
+visible = false
+
+[node name="sword_button" parent="MENU_BELI" index="2"]
+offset_left = 26.75
+offset_top = 23.25
+offset_right = 34.75
+offset_bottom = 31.25
+
+[node name="sword" parent="MENU_BELI/sword_button" index="0"]
+texture = ExtResource("2_u6oce")
+hframes = 1
+vframes = 1
+frame = 0
+
+[node name="Label" parent="MENU_BELI/sword_button/sword" index="0"]
+text = "20"

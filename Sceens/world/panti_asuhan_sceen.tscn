@@ -2447,7 +2447,6 @@ text = "GAME SAVED"
 
 [node name="inventory_manager" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("9_jm7d3")
 
 [node name="inventory_gui" parent="inventory_manager" instance=ExtResource("10_d6f4l")]
