@@ -1538,10 +1538,10 @@ texture_progress = ExtResource("10_78op4")
 [node name="Virtual Joystick" parent="android_controler" instance=ExtResource("12_d4svl")]
 modulate = Color(1, 1, 1, 0.470588)
 offset_left = 38.0
-offset_top = -84.0
+offset_top = -98.0
 offset_right = 338.0
-offset_bottom = 216.0
-scale = Vector2(0.2, 0.2)
+offset_bottom = 202.0
+scale = Vector2(0.3, 0.3)
 pressed_color = Color(0.495173, 0.618253, 0.9815, 1)
 clampzone_size = 20.0
 action_left = "left"
@@ -1552,18 +1552,21 @@ action_down = "down"
 [node name="attack" type="TouchScreenButton" parent="android_controler"]
 modulate = Color(1, 1, 1, 0.470588)
 position = Vector2(332, 175)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("13_q2gcl")
 action = "attack"
 
 [node name="dash" type="TouchScreenButton" parent="android_controler"]
 modulate = Color(1, 1, 1, 0.470588)
-position = Vector2(331, 128)
+position = Vector2(331, 112)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("14_2jx7h")
 action = "dash"
 
 [node name="interact" type="TouchScreenButton" parent="android_controler"]
 modulate = Color(1, 1, 1, 0.470588)
-position = Vector2(278, 175)
+position = Vector2(261, 175)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("15_umurq")
 action = "interact"
 

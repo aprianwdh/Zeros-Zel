@@ -166,10 +166,10 @@ texture = ExtResource("3_uj15h")
 
 [node name="sword_button" type="Button" parent="MENU_BELI"]
 layout_mode = 0
-offset_left = 35.25
-offset_top = 18.75
-offset_right = 43.25
-offset_bottom = 26.75
+offset_left = 28.0
+offset_top = 24.75
+offset_right = 36.0
+offset_bottom = 32.75
 
 [node name="sword" type="Sprite2D" parent="MENU_BELI/sword_button"]
 position = Vector2(4, 4)
