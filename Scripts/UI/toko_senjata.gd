@@ -14,6 +14,10 @@ var harga_kayu = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GLobal_script.current_quest == "chap1_5":
+		$MENU_AWAL/HBoxContainer/button_beli.show()
+	else :
+		$MENU_AWAL/HBoxContainer/button_beli.hide()
 	menu_beli.hide()
 	menu_jual.hide()
 	menu_awal.show()

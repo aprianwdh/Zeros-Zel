@@ -17,7 +17,7 @@ func _ready():
 		#$TileMap/Player.position = Vector2(GLobal_script.last_position_player_x,GLobal_script.last_position_player_y)
 
 func _process(delta):
-	if GLobal_script.have_sword and GLobal_script.level_player <= 2 and GLobal_script.current_quest == "chap1_5":
+	if (GLobal_script.have_sword and GLobal_script.level_player <= 2) and GLobal_script.current_quest == "chap1_5":
 		GLobal_script.current_quest = "chap1_6"
 
 

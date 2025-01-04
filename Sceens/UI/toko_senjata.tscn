@@ -13,7 +13,6 @@
 script = ExtResource("1_r03vn")
 
 [node name="MENU_AWAL" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -112,6 +111,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_uj15h")
 
 [node name="MENU_BELI" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -41,8 +41,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51juj"]
-radius = 2.0
-height = 16.0
+radius = 5.0
+height = 10.0
 
 [node name="torch" type="Area2D"]
 script = ExtResource("1_iykc1")

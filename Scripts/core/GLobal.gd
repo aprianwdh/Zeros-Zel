@@ -53,22 +53,22 @@ func _process(_delta):
 	if current_sceen == 'world' and current_music != 'main':
 		AudioManager.stop_cave()
 		AudioManager.stop_boss()
-		AudioManager.play_main()
 		AudioManager.stop_end()
+		AudioManager.play_main()
 		current_music = 'main'
 	elif current_sceen == 'forest' and current_music != 'forest':
 		AudioManager.stop_main()
 		AudioManager.stop_boss()
-		AudioManager.play_cave()
 		AudioManager.stop_end()
+		AudioManager.play_cave()
 		current_music = 'forest'
-	elif (current_sceen == 'boss' or current_sceen == 'boss') and current_music != 'boss':
+	elif current_sceen == 'boss' and current_music != 'boss':
 		AudioManager.stop_main()
 		AudioManager.stop_cave()
-		AudioManager.play_boss()
 		AudioManager.stop_end()
+		AudioManager.play_boss()
 		current_music = 'boss'
-	elif (current_sceen == 'end' or current_sceen == 'end') and current_music != 'end':
+	elif current_sceen == 'end' and current_music != 'end':
 		AudioManager.stop_main()
 		AudioManager.stop_cave()
 		AudioManager.stop_boss()

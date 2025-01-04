@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://i04kvvb6jjp"]
+[gd_scene load_steps=36 format=3 uid="uid://i04kvvb6jjp"]
 
 [ext_resource type="Script" path="res://Scripts/world/main_menu.gd" id="1_qmamu"]
 [ext_resource type="Texture2D" uid="uid://cbaoflq0biqfd" path="res://Assets/fantasy_ [version 2.0]/forest_/forest_.png" id="2_gxlv4"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7r22lcgixjae" path="res://Assets/world/water_reflect/Water Reflect Small 02.png" id="13_u6tbw"]
 [ext_resource type="Texture2D" uid="uid://cymi6niwtcdqp" path="res://Assets/world/water_reflect/Water Reflect Small 03.png" id="14_tftii"]
 [ext_resource type="Texture2D" uid="uid://dhn5wgyfc6gao" path="res://Assets/world/water_reflect/Water Reflect Small 04.png" id="15_oavkx"]
+[ext_resource type="PackedScene" uid="uid://gh1gda34bfxw" path="res://Sceens/cutsceen/fade_transisi.tscn" id="16_o4itq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sjh6"]
 texture = ExtResource("2_gxlv4")
@@ -1326,6 +1327,8 @@ autoplay = "default"
 position = Vector2(36, 25)
 sprite_frames = SubResource("SpriteFrames_febum")
 autoplay = "default"
+
+[node name="fade_transisi" parent="." instance=ExtResource("16_o4itq")]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/new_game" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/countinue" to="." method="_on_countinue_pressed"]

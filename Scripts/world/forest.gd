@@ -14,6 +14,7 @@ func _ready():
 	$fade_transisi.play("fade_out")
 	GLobal_script.current_sceen = 'forest'
 	GLobal_script.current_quest = "chap_boss"
+	print(GLobal_script.current_sceen)
 	
 	#if GLobal_script.load_position_player:
 		#$TileMap/Player.position = Vector2(GLobal_script.last_position_player_x,GLobal_script.last_position_player_y)
@@ -22,6 +23,7 @@ func _process(delta):
 	if GLobal_script.have_sword and GLobal_script.level_player <= 2 and GLobal_script.current_quest == "chap1_5":
 		GLobal_script.current_quest = "chap1_6"
 	GLobal_script.current_sceen = 'forest'
+
 
 
 

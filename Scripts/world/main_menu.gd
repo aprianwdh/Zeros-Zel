@@ -3,6 +3,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$fade_transisi.play("fade_out")
 	GLobal_script.is_saving()
 	$AnimationPlayer.play("fade_out")
 	GLobal_script.current_sceen = 'world'

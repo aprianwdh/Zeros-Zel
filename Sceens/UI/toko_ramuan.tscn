@@ -7,13 +7,7 @@
 [node name="Toko_ramuan" instance=ExtResource("1_gxumo")]
 script = ExtResource("2_7qc5p")
 
-[node name="MENU_AWAL" parent="." index="0"]
-visible = true
-
 [node name="button_jual" parent="MENU_AWAL/HBoxContainer" index="1"]
-visible = false
-
-[node name="MENU_BELI" parent="." index="2"]
 visible = false
 
 [node name="sword_button" parent="MENU_BELI" index="2"]

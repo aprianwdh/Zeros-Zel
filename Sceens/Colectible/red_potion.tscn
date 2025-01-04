@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://cww8l51j7f3sj"]
+
+[ext_resource type="Script" path="res://Scripts/Collectible/red_potion.gd" id="1_wqw3i"]
+[ext_resource type="Texture2D" uid="uid://by2fmyxy6e6gc" path="res://Assets/collectable/potion/01.png" id="2_dm6v7"]
+[ext_resource type="Texture2D" uid="uid://w5obbm8dcxa2" path="res://Assets/collectable/potion/02.png" id="3_7nen0"]
+[ext_resource type="Texture2D" uid="uid://bxy4x737iqp4f" path="res://Assets/collectable/potion/03.png" id="4_yg22h"]
+[ext_resource type="Texture2D" uid="uid://ohpa1sh6f8ac" path="res://Assets/collectable/potion/04.png" id="5_qaqi4"]
+[ext_resource type="Texture2D" uid="uid://dqw1vssqit2dy" path="res://Assets/collectable/potion/05.png" id="6_12msw"]
+[ext_resource type="Texture2D" uid="uid://b0xux652mec6f" path="res://Assets/collectable/potion/06.png" id="7_mcpji"]
+[ext_resource type="Texture2D" uid="uid://6jnb1ldowk6p" path="res://Assets/collectable/potion/07.png" id="8_8cl1l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51juj"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgy1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dm6v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7nen0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yg22h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qaqi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_12msw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mcpji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8cl1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="red_potion" type="Area2D"]
+script = ExtResource("1_wqw3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_51juj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_sgy1x")
+autoplay = "default"
+frame = 1
+frame_progress = 0.91921
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
