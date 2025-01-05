@@ -1534,6 +1534,7 @@ texture_under = ExtResource("10_548h1")
 texture_progress = ExtResource("10_78op4")
 
 [node name="android_controler" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Virtual Joystick" parent="android_controler" instance=ExtResource("12_d4svl")]
 modulate = Color(1, 1, 1, 0.470588)

@@ -96,7 +96,7 @@ offset_top = -5.0
 offset_right = 78.75
 offset_bottom = 18.0
 scale = Vector2(2, 2)
-text = "5"
+text = "10"
 
 [node name="kayu_player" type="Label" parent="MENU_JUAL/kayu"]
 offset_left = -6.25
@@ -106,7 +106,7 @@ offset_bottom = 49.25
 horizontal_alignment = 1
 
 [node name="coin" type="Sprite2D" parent="MENU_JUAL/kayu"]
-position = Vector2(75, 17.5)
+position = Vector2(93.75, 17.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_uj15h")
 

@@ -15,7 +15,7 @@ func _process(delta):
 	elif GLobal_script.current_quest == 'prolog3':
 		quest_label.text = 'Carilah 10 Kayu untuk memperbaiki kapal'
 	elif GLobal_script.current_quest == 'chap1_1':
-		quest_label.text = 'Pergilah ke Panti Asuhan untuk menemui Kakek dan yang lain'
+		quest_label.text = 'Pergilah ke Panti Asuhan untuk menemui Kakek dan yang lain (rumah yang ada tulisan "inn")'
 	elif GLobal_script.current_quest == 'chap1_2':
 		quest_label.text = 'Tebanglah 10 kayu (' + str(GLobal_script.kayu_player) +'/10) dan kembalilah ke Panti Asuhan'
 	elif GLobal_script.current_quest == 'chap1_3':

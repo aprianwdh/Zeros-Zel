@@ -14,8 +14,10 @@ var last_direction = Vector2.ZERO
 
 var death_player = false
 var coldown_attack = false
+var direction = Vector2.ZERO
 
 func _ready():
+	direction = Vector2.ZERO
 	if GLobal_script.load_position_player:
 		$".".global_position = Vector2(GLobal_script.last_position_player_x,GLobal_script.last_position_player_y)
 		GLobal_script.load_position_player = false
@@ -27,23 +29,27 @@ func _ready():
 		GLobal_script.restart_game = false
 	animasi_player.play("iddle_down")
 	last_direction.y = 1
+	$android_controler.hide()
+	await get_tree().create_timer(1).timeout
+	$android_controler.show()
 func _physics_process(delta):
 	if death_player == false:
 		dash()
-		move_player(delta)
 		update_animation(delta)
 		animasi_attack()
 		update_icon_interact()
 		update_satmina_bar()
 		update_stamina()
+		await get_tree().create_timer(1).timeout
+		move_player(delta)
 	
 func move_player(delta):
-	var direction = Input.get_vector('left','right','up','down')
+	direction = Input.get_vector('left','right','up','down')
 	velocity = direction * SPEED * delta
 	move_and_slide()
 	
 func update_animation(_delta):
-	var direction = Input.get_vector('left','right','up','down')
+	direction = Input.get_vector('left','right','up','down')
 	
 	if direction != Vector2.ZERO:
 		last_direction = direction
